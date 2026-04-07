@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naomi Oke — Roboticist & Aerospace Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --cream:#f6f2ec;--warm:#ede7dd;--dark:#0b0e13;--navy:#141924;
+  --copper:#c47a4a;--copper-light:#d99a6e;--copper-dim:rgba(196,122,74,.08);
+  --text-dark:#1a1a1a;--text-mid:#5a5549;--text-light:#9a9488;
+  --text-on-dark:#e8e4dd;--text-on-dark-mid:#a09a90;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Sora',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--cream);color:var(--text-dark);
+  line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--copper);color:#fff}
+a{color:var(--copper);text-decoration:none;transition:color .2s}
+a:hover{color:var(--copper-light)}
+img{max-width:100%;height:auto}
+
+body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
+  background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E")}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.2rem 3rem;
+  display:flex;align-items:center;justify-content:space-between;transition:background .4s,backdrop-filter .4s}
+nav.scrolled{background:rgba(246,242,236,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.06)}
+nav .name{font-family:var(--serif);font-size:1.3rem;font-weight:600;color:var(--text-dark);letter-spacing:.02em}
+nav .links{display:flex;gap:2rem;align-items:center}
+nav .links a{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:var(--text-mid);transition:color .2s}
+nav .links a:hover{color:var(--copper)}
+nav .links .cta-sm{background:var(--dark);color:var(--cream);padding:.5rem 1.2rem;border-radius:100px;font-size:.68rem;letter-spacing:.1em}
+nav .links .cta-sm:hover{background:var(--copper);color:#fff}
+.menu-btn{display:none;background:none;border:none;cursor:pointer;padding:4px}
+.menu-btn svg{width:24px;height:24px;stroke:var(--text-dark);stroke-width:2;fill:none}
+
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:8rem 3rem 4rem}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg canvas{width:100%;height:100%}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;max-width:1200px;margin:0 auto;width:100%}
+.hero-text h1{font-family:var(--serif);font-size:clamp(3rem,6.5vw,5.5rem);font-weight:700;line-height:1.05;margin-bottom:1rem}
+.hero-text h1 em{font-style:italic;color:var(--copper)}
+.hero-text .sub{font-size:.95rem;color:var(--text-mid);margin-bottom:2rem;max-width:420px;font-weight:300;line-height:1.8}
+.hero-text .hero-btns{display:flex;gap:.8rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.75rem 1.8rem;border-radius:100px;font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;transition:all .3s}
+.btn-dark{background:var(--dark);color:var(--cream)}.btn-dark:hover{background:var(--copper);color:#fff;transform:translateY(-2px);box-shadow:0 8px 30px rgba(196,122,74,.2)}
+.btn-outline{border:1.5px solid var(--text-light);color:var(--text-dark)}.btn-outline:hover{border-color:var(--copper);color:var(--copper)}
+.hero-img{position:relative}.hero-img img{width:100%;max-width:440px;border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.12);float:right}
+.hero-img .caption{position:absolute;bottom:-1.2rem;right:0;font-size:.68rem;color:var(--text-light);font-style:italic}
+.hero-scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:.4rem;animation:bobble 2.5s ease infinite}
+.hero-scroll span{font-size:.6rem;text-transform:uppercase;letter-spacing:.2em;color:var(--text-light)}
+.hero-scroll svg{width:18px;height:18px;stroke:var(--text-light);stroke-width:2;fill:none}
+@keyframes bobble{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+
+.about-strip{background:var(--dark);color:var(--text-on-dark);padding:6rem 3rem;position:relative;overflow:hidden}
+.about-strip::before{content:'';position:absolute;top:-60px;left:-60px;width:400px;height:400px;background:radial-gradient(circle,rgba(196,122,74,.12),transparent 70%);pointer-events:none}
+.about-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:3rem}
+.about-stat{text-align:center}.about-stat .num{font-family:var(--serif);font-size:3.2rem;font-weight:700;color:var(--copper);line-height:1}
+.about-stat .label{font-size:.72rem;text-transform:uppercase;letter-spacing:.14em;color:var(--text-on-dark-mid);margin-top:.5rem}
+
+.sec{padding:7rem 3rem;max-width:1200px;margin:0 auto}
+.sec-dark{background:var(--dark);color:var(--text-on-dark);max-width:100%}
+.sec-dark .sec-inner{max-width:1200px;margin:0 auto;padding:7rem 3rem}
+.sec-warm{background:var(--warm);max-width:100%}
+.sec-warm .sec-inner{max-width:1200px;margin:0 auto;padding:7rem 3rem}
+.sec-tag{display:inline-block;font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.2em;color:var(--copper);margin-bottom:.8rem;padding:.35rem .9rem;border:1px solid var(--copper);border-radius:100px}
+.sec-dark .sec-tag{border-color:rgba(196,122,74,.4)}
+.sec-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3.2rem);font-weight:700;line-height:1.15;margin-bottom:.6rem}
+.sec-sub{color:var(--text-mid);font-size:.9rem;font-weight:300;max-width:550px;margin-bottom:3rem;line-height:1.8}
+.sec-dark .sec-sub{color:var(--text-on-dark-mid)}
+
+.exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.exp-card{background:var(--navy);border:1px solid rgba(255,255,255,.05);border-radius:12px;padding:1.8rem;transition:transform .3s,border-color .3s}
+.exp-card:hover{transform:translateY(-4px);border-color:rgba(196,122,74,.25)}
+.exp-card .year{font-size:.65rem;font-weight:600;color:var(--copper);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.3rem}
+.exp-card h3{font-family:var(--serif);font-size:1.2rem;font-weight:600;margin-bottom:.15rem;color:var(--text-on-dark)}
+.exp-card .role{font-size:.82rem;color:var(--text-on-dark-mid);margin-bottom:.6rem;font-weight:400}
+.exp-card p{font-size:.82rem;color:var(--text-on-dark-mid);line-height:1.65;font-weight:300}
+
+.proj-cat{margin-bottom:3.5rem}
+.proj-cat-label{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.18em;color:var(--text-light);margin-bottom:1.2rem;display:flex;align-items:center;gap:.8rem}
+.proj-cat-label::after{content:'';flex:1;height:1px;background:rgba(0,0,0,.08)}
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.proj-card{background:#fff;border-radius:10px;overflow:hidden;border:1px solid rgba(0,0,0,.06);transition:transform .3s,box-shadow .3s}
+.proj-card:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,.08)}
+.proj-card img{width:100%;height:180px;object-fit:cover;display:block}
+.proj-card .body{padding:1.3rem 1.4rem}
+.proj-card .tag{font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--copper);margin-bottom:.35rem;display:block}
+.proj-card h3{font-size:.95rem;font-weight:600;margin-bottom:.3rem;line-height:1.35}
+.proj-card p{font-size:.78rem;color:var(--text-mid);line-height:1.6;font-weight:300;margin-bottom:.6rem}
+.proj-card a.link{font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+.proj-card.text-only{background:var(--warm);border:1px solid rgba(0,0,0,.04)}.proj-card.text-only .body{padding:1.5rem 1.6rem}
+.proj-card.wide{grid-column:span 2}
+
+.skills-section{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.skill-group h4{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--copper);margin-bottom:.6rem}
+.pills{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:1.5rem}
+.pill{padding:.3rem .85rem;border-radius:100px;font-size:.72rem;font-weight:500;background:rgba(196,122,74,.07);color:var(--copper);border:1px solid rgba(196,122,74,.15)}
+
+.mentee-row{display:flex;flex-wrap:wrap;gap:.8rem}
+.mentee{background:var(--navy);border:1px solid rgba(255,255,255,.05);border-radius:8px;padding:.9rem 1.2rem;flex:1;min-width:200px}
+.mentee h4{font-size:.85rem;color:var(--text-on-dark);margin-bottom:.1rem}
+.mentee span{font-size:.72rem;color:var(--text-on-dark-mid)}
+
+.contact-row{display:flex;gap:1rem;flex-wrap:wrap}
+.contact-chip{display:inline-flex;align-items:center;gap:.4rem;padding:.65rem 1.5rem;border-radius:100px;font-size:.82rem;font-weight:500;background:#fff;border:1px solid rgba(0,0,0,.08);color:var(--text-dark);transition:all .3s}
+.contact-chip:hover{border-color:var(--copper);color:var(--copper);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.06)}
+
+footer{background:var(--dark);padding:3rem;text-align:center;color:var(--text-on-dark-mid);font-size:.75rem}
+footer a{color:var(--copper)}
+
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:.1s}.reveal-d2{transition-delay:.2s}.reveal-d3{transition-delay:.3s}
+
+@media(max-width:1024px){
+  .hero-grid{grid-template-columns:1fr;text-align:center}
+  .hero-text .sub{margin-left:auto;margin-right:auto}
+  .hero-text .hero-btns{justify-content:center}
+  .hero-img img{float:none;max-width:320px;margin:0 auto}
+  .hero-img .caption{right:auto;left:50%;transform:translateX(-50%)}
+  .exp-grid{grid-template-columns:1fr}
+  .proj-grid{grid-template-columns:1fr 1fr}
+  .proj-card.wide{grid-column:span 1}
+  .skills-section{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  nav{padding:1rem 1.5rem}
+  nav .links{display:none}
+  nav .links.open{display:flex;flex-direction:column;position:fixed;top:56px;left:0;right:0;background:var(--cream);padding:2rem;gap:1.5rem;border-bottom:1px solid rgba(0,0,0,.08)}
+  .menu-btn{display:block}
+  .hero{padding:7rem 1.5rem 3rem}
+  .sec,.sec-dark .sec-inner,.sec-warm .sec-inner{padding:4rem 1.5rem}
+  .about-inner{grid-template-columns:1fr;gap:2rem}
+  .proj-grid{grid-template-columns:1fr}
+  .hero-text h1{font-size:2.6rem}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#" class="name">Naomi Oke</a>
+  <div class="links" id="nav-links">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact" class="cta-sm">Contact</a>
+  </div>
+  <button class="menu-btn" onclick="document.getElementById('nav-links').classList.toggle('open')" aria-label="Menu">
+    <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"><canvas id="starsCanvas"></canvas></div>
+  <div class="hero-grid">
+    <div class="hero-text">
+      <h1 class="reveal">Roboticist.<br><em>Explorer.</em></h1>
+      <p class="sub reveal reveal-d1">Ph.D. Candidate at Carnegie Mellon building robots that move intelligently — from centimeter-scale walkers to lunar rovers.</p>
+      <div class="hero-btns reveal reveal-d2">
+        <a href="#projects" class="btn btn-dark">View My Work</a>
+        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      </div>
+    </div>
+    <div class="hero-img reveal reveal-d2">
+      <img src="https://static.wixstatic.com/media/79b7dd_80f74986babc4decaaf7ac8b92b28be0~mv2.jpg/v1/fill/w_480,h_480,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_4151.jpg" alt="Naomi Oke">
+      <span class="caption">📸 Chad Isaiah Studios</span>
+    </div>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+</section>
+
+<!-- STATS -->
+<div class="about-strip" id="about">
+  <div class="about-inner">
+    <div class="about-stat reveal"><div class="num">2×</div><div class="label">SpaceX Intern</div></div>
+    <div class="about-stat reveal reveal-d1"><div class="num">JPL</div><div class="label">Mars Sample Return</div></div>
+    <div class="about-stat reveal reveal-d2"><div class="num">CMU</div><div class="label">PhD · Robomechanics Lab</div></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="sec">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start">
+    <div class="reveal">
+      <span class="sec-tag">About Me</span>
+      <h2 class="sec-title">Engineer with a passion for space &amp;&nbsp;locomotion.</h2>
+      <p class="sec-sub" style="max-width:100%">I'm a third-year Ph.D. candidate in Mechanical Engineering at Carnegie Mellon, working in the <a href="https://www.cmu.edu/me/robomechanicslab/" target="_blank">Robomechanics Lab</a> on design optimization, legged locomotion, and bipedal dynamics across length scales.</p>
+      <p style="color:var(--text-mid);font-size:.88rem;line-height:1.8;font-weight:300;margin-bottom:1rem">I earned my B.S.E. from Princeton University in Mechanical &amp; Aerospace Engineering with a certificate in Robotics &amp; Intelligent Systems. My work spans multimodal locomotion, legged robots, and space technologies.</p>
+      <p style="color:var(--text-mid);font-size:.88rem;line-height:1.8;font-weight:300">When I'm not deep in CAD models, I enjoy creative writing, hand-drawn 2D animation, learning new languages, hiking, and photography.</p>
+    </div>
+    <div class="reveal reveal-d2" style="display:flex;flex-direction:column;gap:1rem;padding-top:2.5rem">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+        <img src="https://static.wixstatic.com/media/79b7dd_0c433329ccac4128aec8f215cab404e4~mv2.jpg/v1/fill/w_400,h_468,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/79b7dd_0c433329ccac4128aec8f215cab404e4~mv2.jpg" alt="MoonRanger" style="width:100%;border-radius:10px;object-fit:cover;height:220px">
+        <img src="https://static.wixstatic.com/media/79b7dd_cd0feea88c24403d8f5530d4a7dc2077~mv2.jpg/v1/fill/w_480,h_270,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_4216.jpg" alt="Mole Robot" style="width:100%;border-radius:10px;object-fit:cover;height:220px">
+      </div>
+      <img src="https://static.wixstatic.com/media/79b7dd_97dc1b7e8b894a5292a2ef7b9ce5edf3~mv2.jpg/v1/fill/w_490,h_260,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Starlink_Mission_(47926144123).jpg" alt="SpaceX Starlink" style="width:100%;border-radius:10px;object-fit:cover;height:180px">
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<div class="sec-dark" id="experience">
+  <div class="sec-inner">
+    <span class="sec-tag reveal">Experience</span>
+    <h2 class="sec-title reveal reveal-d1" style="color:var(--text-on-dark)">Where I've worked.</h2>
+    <p class="sec-sub reveal reveal-d1">From lunar rovers to Starship, contributing to systems that push the boundaries of engineering.</p>
+    <div class="exp-grid">
+      <div class="exp-card reveal reveal-d1"><div class="year">Jan – May 2025</div><h3>CMU MoonRanger</h3><div class="role">Mechanical Design Lead</div><p>Led mechanical design for the first rover to autonomously search for subsurface water ice at the lunar South Pole. Performed FEA modal and structural analyses in SolidWorks.</p></div>
+      <div class="exp-card reveal reveal-d2"><div class="year">Summer 2023</div><h3>NASA JPL</h3><div class="role">Graduate Intern — Mars Sample Return</div><p>Designed 13 qualification experiments for a mission-critical harness on the Mars Sample Return mission. Conducted tolerance stack-up analyses.</p></div>
+      <div class="exp-card reveal reveal-d1"><div class="year">Summer 2022</div><h3>SpaceX — Starlink</h3><div class="role">Harness Design Engineer Intern</div><p>Redesigned flight power and data harnesses. Simplified major satellite harnesses, reducing costs by over $2 million.</p></div>
+      <div class="exp-card reveal reveal-d2"><div class="year">Summer 2021</div><h3>SpaceX — Starship</h3><div class="role">Engineering Intern</div><p>Worked on hydraulics for Raptor engines and flap systems in the AFT section of the orbital Starship.</p></div>
+      <div class="exp-card reveal reveal-d1"><div class="year">Summer 2020</div><h3>Princeton IRoM Lab</h3><div class="role">SPRE Research Intern</div><p>Simulated autonomous trash-collecting Jackal robot using ROS and Stanford's iGibson.</p></div>
+      <div class="exp-card reveal reveal-d2"><div class="year">2018</div><h3>NASA JSC / SEES</h3><div class="role">Mars Exploration Research</div><p>Designed a crewed Mars mission — habitat, water recycling, cost analysis. Presented at Johnson Space Center.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<section class="sec" id="projects">
+  <span class="sec-tag reveal">Projects</span>
+  <h2 class="sec-title reveal reveal-d1">Engineering &amp; research.</h2>
+  <p class="sec-sub reveal reveal-d1">Across robotics, controls, machine learning, aerospace, and mechanical&nbsp;design.</p>
+
+  <!-- ROBOTICS & CONTROLS -->
+  <div class="proj-cat reveal">
+    <div class="proj-cat-label">Robotics &amp; Controls</div>
+    <div class="proj-grid">
+
+      <div class="proj-card wide">
+        <img src="https://static.wixstatic.com/media/79b7dd_cd0feea88c24403d8f5530d4a7dc2077~mv2.jpg/v1/fill/w_480,h_270,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_4216.jpg" alt="Penguin Robot" style="height:200px">
+        <div class="body">
+          <span class="tag">Bipedal Robotics · CMU · Robomechanics Lab</span>
+          <h3>Penguin-Inspired Bipedal Robot for Low-Friction Surface Walking</h3>
+          <p>Designed and evaluated a self-stabilizing penguin-inspired bipedal robot (54 cm tall, 2.29 kg) with ellipsoidal feet and open-loop sinusoidal control. The robot achieved faster walking on low-friction surfaces (0.165 m/s) than baseline, demonstrating that morphological design can improve locomotion robustness. Five Dynamixel-actuated joints drive crank-shaft leg extension and torso roll for lateral weight shifting.</p>
+        </div>
+      </div>
+
+      <div class="proj-card text-only">
+        <div class="body">
+          <span class="tag">Scaling · CMU · Robomechanics Lab</span>
+          <h3>Scaling in Bipedal Robot Design</h3>
+          <p>Research on how geometric scaling affects bipedal locomotion performance. Contributing to work on the Zippy platform — the world's smallest self-contained bipedal robot (3.6 cm tall) — achieving 10 leg-lengths/second using quasi-passive dynamic walking with a single actuator.</p>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <img src="images/ekf-slam-map.png" alt="EKF-SLAM" style="height:180px;object-fit:contain;background:#e8e4dd">
+        <div class="body">
+          <span class="tag">Controls · CMU · 24-677</span>
+          <h3>EKF-SLAM for Mobile Robots</h3>
+          <p>Implemented Extended Kalman Filter SLAM for simultaneous localization and mapping in Webots. Built state estimation pipeline for a mobile robot navigating an unknown environment with landmark detection.</p>
+        </div>
+      </div>
+
+      <div class="proj-card text-only">
+        <div class="body">
+          <span class="tag">Controls · CMU · 24-677</span>
+          <h3>LQR Trajectory Tracking</h3>
+          <p>Designed and tuned Linear Quadratic Regulator controllers for optimal trajectory tracking on mobile robot platforms. Derived linearized system dynamics and computed gain matrices for minimum-cost control in simulation.</p>
+        </div>
+      </div>
+
+      <div class="proj-card text-only">
+        <div class="body">
+          <span class="tag">Controls · CMU · 24-677</span>
+          <h3>Model Predictive Control</h3>
+          <p>Implemented MPC for constrained path planning with obstacle avoidance. Formulated receding-horizon optimization problems accounting for input constraints and dynamic feasibility.</p>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <img src="https://static.wixstatic.com/media/79b7dd_ec0e6803f9b94fc693b4df873af8de92~mv2.png/v1/fill/w_490,h_331,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Screenshot%202023-08-25%20at%2011_30_48%20PM.png" alt="IRoM Lab">
+        <div class="body">
+          <span class="tag">Robotics · Princeton</span>
+          <h3>Jackal Robot Simulation</h3>
+          <p>Autonomous trash-collecting robot using ROS &amp; iGibson at the Princeton IRoM Lab.</p>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <img src="https://static.wixstatic.com/media/79b7dd_764d2f6f3b7648ffac908493254efa32~mv2.png/v1/fill/w_490,h_331,al_c,lg_1,q_85,enc_avif,quality_auto/Screenshot%202023-08-25%20at%2010_04_15%20PM.png" alt="Mobility Aid">
+        <div class="body">
+          <span class="tag">Bio-inspired · Princeton</span>
+          <h3>Bio-inspired Mobility Aid</h3>
+          <p>Biologically-inspired assistive device for accessibility applications.</p>
+          <a href="https://drive.google.com/file/d/15Zke9RVO0sIUJe6cqwfwFQMqo7HPTd97/view?usp=sharing" target="_blank" class="link">View →</a>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <img src="https://static.wixstatic.com/media/11062b_be6d973aaa1748aca87d52fbd1af37f0~mv2.jpg/v1/fill/w_490,h_331,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Building%20Robot.jpg" alt="MOSTEC">
+        <div class="body">
+          <span class="tag">MIT MOSTEC · 2018</span>
+          <h3>Royal Hummer Algorithm</h3>
+          <p>Analyzed a card trick through combinatorics, developing pseudocode to algorithmically describe the trick's mechanics.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- DEEP LEARNING -->
+  <div class="proj-cat reveal">
+    <div class="proj-cat-label">Deep Learning</div>
+    <div class="proj-grid">
+      <div class="proj-card">
+        <img src="images/gan-digits.png" alt="GAN digits">
+        <div class="body">
+          <span class="tag">Generative Models · CMU</span>
+          <h3>GAN for Handwritten Digit Generation</h3>
+          <p>Trained a Generative Adversarial Network from scratch in PyTorch to generate realistic MNIST-style handwritten digits. Implemented generator and discriminator architectures with training stabilization techniques.</p>
+        </div>
+      </div>
+      <div class="proj-card">
+        <img src="images/airfoil-vae.png" alt="VAE airfoils">
+        <div class="body">
+          <span class="tag">Generative Models · CMU</span>
+          <h3>VAE for Airfoil Shape Generation</h3>
+          <p>Built a Variational Autoencoder to learn a latent representation of airfoil geometries. Sampled from the learned distribution to generate novel, physically plausible airfoil profiles.</p>
+        </div>
+      </div>
+      <div class="proj-card">
+        <img src="images/airfoil-gan.png" alt="GAN airfoils">
+        <div class="body">
+          <span class="tag">Generative Models · CMU</span>
+          <h3>GAN for Airfoil Shape Generation</h3>
+          <p>Applied GANs to the airfoil generation task, producing diverse aerodynamic profiles through adversarial training on engineering shape datasets.</p>
+        </div>
+      </div>
+      <div class="proj-card text-only">
+        <div class="body">
+          <span class="tag">Sequence Modeling · CMU</span>
+          <h3>RNN &amp; LSTM Language Models</h3>
+          <p>Implemented recurrent and LSTM architectures for sequence prediction. Trained models on text data exploring vanishing gradients, gating mechanisms, and beam search decoding.</p>
+        </div>
+      </div>
+      <div class="proj-card text-only">
+        <div class="body">
+          <span class="tag">Computer Vision · CMU</span>
+          <h3>CNN Image Classification</h3>
+          <p>Designed convolutional neural networks for image recognition tasks, implementing batch normalization, dropout, and residual connections from scratch in PyTorch.</p>
+        </div>
+      </div>
+      <div class="proj-card text-only">
+        <div class="body">
+          <span class="tag">Attention · CMU</span>
+          <h3>Attention &amp; Transformers</h3>
+          <p>Implemented self-attention mechanisms and transformer architectures for sequence-to-sequence tasks, exploring positional encoding and multi-head attention.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ML / AI -->
+  <div class="proj-cat reveal">
+    <div class="proj-cat-label">Machine Learning &amp; AI</div>
+    <div class="proj-grid">
+      <div class="proj-card">
+        <img src="images/topology-opt.png" alt="Topology Optimization">
+        <div class="body">
+          <span class="tag">Optimization · CMU · 24-787</span>
+          <h3>Topology Optimization with ML</h3>
+          <p>Applied machine learning methods to structural topology optimization, predicting optimal material distributions under loading conditions using stress-field visualization.</p>
+        </div>
+      </div>
+      <div class="proj-card text-only">
+        <div class="body">
+          <span class="tag">Classification · CMU · 24-787</span>
+          <h3>SVM &amp; Decision Tree Classification</h3>
+          <p>Implemented support vector machines with different kernels and decision tree classifiers. Compared one-vs-one and one-vs-rest multi-class strategies on engineering datasets.</p>
+        </div>
+      </div>
+      <div class="proj-card text-only">
+        <div class="body">
+          <span class="tag">Unsupervised · CMU · 24-787</span>
+          <h3>Dimensionality Reduction &amp; Clustering</h3>
+          <p>Applied PCA, normalization, log transforms, and clustering algorithms for data preprocessing and pattern discovery in high-dimensional engineering data.</p>
+        </div>
+      </div>
+      <div class="proj-card text-only">
+        <div class="body">
+          <span class="tag">Neural Networks · CMU · 24-787</span>
+          <h3>Neural Network Fundamentals</h3>
+          <p>Built feedforward networks from scratch — implementing forward/backward passes, sigmoid/tanh activations, and gradient descent optimization for regression and classification tasks.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AEROSPACE -->
+  <div class="proj-cat reveal">
+    <div class="proj-cat-label">Aerospace &amp; Space</div>
+    <div class="proj-grid">
+      <div class="proj-card">
+        <img src="https://static.wixstatic.com/media/79b7dd_0c433329ccac4128aec8f215cab404e4~mv2.jpg/v1/fill/w_400,h_468,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/79b7dd_0c433329ccac4128aec8f215cab404e4~mv2.jpg" alt="MoonRanger">
+        <div class="body">
+          <span class="tag">Lunar Rover · CMU</span>
+          <h3>MoonRanger</h3>
+          <p>First autonomous rover for subsurface water ice at the lunar South Pole. FEA structural analysis and mechanical design lead.</p>
+        </div>
+      </div>
+      <div class="proj-card">
+        <img src="https://static.wixstatic.com/media/79b7dd_78ff3436f3a8408db20762f02de6f139~mv2.png/v1/fill/w_490,h_331,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Synergistic-Air-breathing-Rocket-Engine-SABRE-Courtesy-of-Reaction-Engines-Limited.png" alt="Engine">
+        <div class="body">
+          <span class="tag">Propulsion · Princeton</span>
+          <h3>Detonation Engine System</h3>
+          <p>Rotating detonation engine feasibility for aerospace propulsion.</p>
+          <a href="https://drive.google.com/drive/folders/1KyCvlTa0N6FJYXOHzGduaG54Tb87g6rO?usp=sharing" target="_blank" class="link">View →</a>
+        </div>
+      </div>
+      <div class="proj-card">
+        <img src="https://static.wixstatic.com/media/79b7dd_19504b73660941c5918e44bea5745673~mv2.jpg/v1/fill/w_490,h_331,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Robot%20Costume_edited.jpg" alt="Mars">
+        <div class="body">
+          <span class="tag">NASA / SEES</span>
+          <h3>Mars Habitat Design</h3>
+          <p>Crewed Mars mission for 7 astronauts — habitat, water recycling, emergency modules. Presented at JSC.</p>
+          <a href="https://drive.google.com/drive/folders/1pjDDkE_KGKhvM5O7WoHVDqvLO5MxVQoN?usp=drive_link" target="_blank" class="link">View →</a>
+        </div>
+      </div>
+      <div class="proj-card text-only"><div class="body"><span class="tag">Orbital Mechanics · Princeton</span><h3>Lagrange Point Mission</h3><p>Space mission trajectory &amp; operations plan for a Lagrange point destination.</p><a href="https://drive.google.com/drive/folders/1dA0ptisk9mVwTDB-jmB8BBUfspHS9p7f?usp=sharing" target="_blank" class="link">View →</a></div></div>
+      <div class="proj-card text-only"><div class="body"><span class="tag">Orbital Mechanics · Princeton</span><h3>Van Allen Radiation Belts</h3><p>Orbital mechanics and spacecraft design near the radiation belts.</p><a href="https://drive.google.com/file/d/1hLlO0rQf6al13WRiAi4Xj-MRCBAEMUao/view?usp=sharing" target="_blank" class="link">View →</a></div></div>
+    </div>
+  </div>
+
+  <!-- ADDITIONAL MECHANICAL DESIGN -->
+  <div class="proj-cat reveal">
+    <div class="proj-cat-label">Additional Mechanical Design</div>
+    <div class="proj-grid">
+      <div class="proj-card wide">
+        <img src="https://static.wixstatic.com/media/79b7dd_6d2c083cea944093a19c27e9ffb03cfe~mv2.jpg/v1/fill/w_490,h_331,al_c,lg_1,q_80,enc_avif,quality_auto/fish_flying-fish_600x300.jpg" alt="Flying Fish">
+        <div class="body">
+          <span class="tag">Senior Thesis · Princeton</span>
+          <h3>Bio-inspired Deployable Flying Fish Pectoral Fins</h3>
+          <p>Designed and evaluated deployable fin mechanisms inspired by flying fish for multimodal locomotion — exploring how biological deployment informs robots that transition between aquatic and aerial modes.</p>
+          <a href="https://drive.google.com/file/d/1MspT924CCQvmdWW2a-zdE36tcIp-1Z8O/view?usp=drive_link" target="_blank" class="link">View →</a>
+        </div>
+      </div>
+      <div class="proj-card">
+        <img src="https://static.wixstatic.com/media/79b7dd_39ff1cf3d7274f6eb333c25ceac6f078~mv2.png/v1/fill/w_490,h_331,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Screenshot%202023-08-25%20at%209_56_edited.png" alt="Rube Goldberg">
+        <div class="body"><span class="tag">Mechanical Design · Princeton</span><h3>Rube Goldberg Game Board</h3><p>Multi-mechanism energy transfer machine as a playable game board.</p><a href="https://docs.google.com/document/d/1_tBUPnoaPVxbEum4V78wesis_AZCspb8/edit?usp=sharing" target="_blank" class="link">View →</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ENERGY -->
+  <div class="proj-cat reveal">
+    <div class="proj-cat-label">Energy &amp; Fluid Dynamics</div>
+    <div class="proj-grid">
+      <div class="proj-card"><img src="https://static.wixstatic.com/media/79b7dd_9abf43e0a9be4e30937edc201a69326a~mv2.png/v1/fill/w_303,h_204,al_c,lg_1,q_85,enc_avif,quality_auto/airfoil.png" alt="Airfoil"><div class="body"><span class="tag">Aerodynamics</span><h3>Airfoil Design</h3><p>Optimized airfoil geometries for aerodynamic performance.</p><a href="https://drive.google.com/drive/folders/197ye7ZaMMCDjMFyjUQ7vvyyKOvXtBy5f?usp=sharing" target="_blank" class="link">View →</a></div></div>
+      <div class="proj-card"><img src="https://static.wixstatic.com/media/79b7dd_a1baa5378eed4977a2ca2ada7229d069~mv2.jpeg/v1/fill/w_490,h_331,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/hydrocar.jpeg" alt="Hydrocar"><div class="body"><span class="tag">Energy</span><h3>Hydrocar Technology</h3><p>Hydrogen fuel cell analysis and performance.</p><a href="https://drive.google.com/drive/folders/1-e8nObnxd4DF9MGGmT1X-sdUPGom2-UV?usp=sharing" target="_blank" class="link">View →</a></div></div>
+      <div class="proj-card"><img src="https://static.wixstatic.com/media/79b7dd_51eca812ec4449f6954c6a293c49fd76~mv2.png/v1/fill/w_490,h_331,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Screenshot%202023-08-25%20at%209_53_50%20PM.png" alt="Solar Cooker"><div class="body"><span class="tag">Energy</span><h3>Solar Cooker</h3><p>Thermal analysis and material selection for solar cooking.</p><a href="https://drive.google.com/drive/folders/18_YI2H1fLMEMleu1PdmYIK-BMK4HrfKe?usp=sharing" target="_blank" class="link">View →</a></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<div class="sec-warm" id="skills">
+  <div class="sec-inner">
+    <span class="sec-tag reveal">Skills &amp; Education</span>
+    <h2 class="sec-title reveal reveal-d1">Tools of the trade.</h2>
+    <div class="skills-section reveal reveal-d2">
+      <div>
+        <div class="skill-group"><h4>CAD &amp; Simulation</h4><div class="pills"><span class="pill">SolidWorks</span><span class="pill">Creo</span><span class="pill">Siemens NX</span><span class="pill">Fusion 360</span><span class="pill">Onshape</span></div></div>
+        <div class="skill-group"><h4>Programming</h4><div class="pills"><span class="pill">Python</span><span class="pill">MATLAB</span><span class="pill">Java</span><span class="pill">LaTeX</span><span class="pill">PyTorch</span></div></div>
+        <div class="skill-group"><h4>Robotics Frameworks</h4><div class="pills"><span class="pill">ROS</span><span class="pill">MuJoCo</span><span class="pill">Drake</span><span class="pill">PyBullet</span><span class="pill">Pinocchio</span><span class="pill">Gazebo</span><span class="pill">Klampt</span></div></div>
+      </div>
+      <div>
+        <div class="skill-group"><h4>Fabrication</h4><div class="pills"><span class="pill">Formlabs SLS</span><span class="pill">Ultimaker</span><span class="pill">Bambu</span><span class="pill">Machining</span><span class="pill">Woodworking</span><span class="pill">Prototyping</span></div></div>
+        <div class="skill-group">
+          <h4>Education</h4>
+          <div style="margin-bottom:1rem"><p style="font-size:.9rem;font-weight:500;margin-bottom:.2rem"><strong>Carnegie Mellon</strong> — Ph.D., Mechanical Engineering</p><p style="font-size:.78rem;color:var(--text-mid)">Robomechanics Lab · 2024–Present</p></div>
+          <div><p style="font-size:.9rem;font-weight:500;margin-bottom:.2rem"><strong>Princeton</strong> — B.S.E., MAE + Robotics Certificate</p><p style="font-size:.78rem;color:var(--text-mid)">BAMLab · IRoM-Lab · 2019–2023</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MENTORING -->
+<div class="sec-dark">
+  <div class="sec-inner">
+    <span class="sec-tag reveal">Mentoring</span>
+    <h2 class="sec-title reveal reveal-d1" style="color:var(--text-on-dark)">Students I've mentored.</h2>
+    <div class="mentee-row reveal reveal-d2">
+      <div class="mentee"><h4>Nicole Ortuno</h4><span>B.S. MechE, CMU · 2025–Present</span></div>
+      <div class="mentee"><h4>Cordelia Pride</h4><span>B.S. MechE, CMU · 2024–Present</span></div>
+      <div class="mentee"><h4>Ben Gu</h4><span>B.S. MechE, CMU · 2024–Present</span></div>
+      <div class="mentee"><h4>Catherine Or</h4><span>B.S. MechE, CMU · 2024–2025</span></div>
+      <div class="mentee"><h4>Kendall Hart</h4><span>B.S. MechE, CMU · 2024–2025</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="sec" id="contact" style="text-align:center">
+  <span class="sec-tag reveal">Contact</span>
+  <h2 class="sec-title reveal reveal-d1">Let's connect.</h2>
+  <p class="sec-sub reveal reveal-d1" style="margin-left:auto;margin-right:auto">Open to conversations about robotics, space, research, or collaboration.</p>
+  <div class="contact-row reveal reveal-d2" style="justify-content:center">
+    <a href="mailto:noke@andrew.cmu.edu" class="contact-chip">✉ noke@andrew.cmu.edu</a>
+    <a href="https://www.linkedin.com/in/naomi-oke-url/" target="_blank" class="contact-chip">LinkedIn</a>
+    <a href="https://scholar.google.com/citations?user=989CEk8AAAAJ&hl=en&oi=ao" target="_blank" class="contact-chip">Google Scholar</a>
+    <a href="https://twitter.com/oke_naomi" target="_blank" class="contact-chip">Twitter / X</a>
+    <a href="https://www.instagram.com/naomio_creates" target="_blank" class="contact-chip">@naomio_creates</a>
+  </div>
+</section>
+
+<footer><p>&copy; 2025 Naomi Oke · Built for <a href="https://pages.github.com" target="_blank">GitHub Pages</a></p></footer>
+
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50)});
+(function(){const c=document.getElementById('starsCanvas'),x=c.getContext('2d');let s=[],w,h;function resize(){w=c.width=c.parentElement.offsetWidth;h=c.height=c.parentElement.offsetHeight;}function init(){resize();s=[];for(let i=0;i<180;i++)s.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.4+.2,a:Math.random()*.4+.1,sp:Math.random()*.006+.001,ph:Math.random()*Math.PI*2});}let f=0;function draw(){x.clearRect(0,0,w,h);f++;for(const p of s){const a=p.a+Math.sin(f*p.sp+p.ph)*.15;x.beginPath();x.arc(p.x,p.y,p.r,0,Math.PI*2);x.fillStyle=`rgba(180,165,140,${Math.max(.03,Math.min(a,.6))})`;x.fill();}requestAnimationFrame(draw);}window.addEventListener('resize',init);init();draw();})();
+const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting){el.target.classList.add('visible');obs.unobserve(el.target);}});},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

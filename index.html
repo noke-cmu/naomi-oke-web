@@ -203,7 +203,8 @@ footer a{color:var(--copper)}
     <div class="reveal reveal-d2" style="display:flex;flex-direction:column;gap:1rem;padding-top:2.5rem">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
         <img src="images/moonranger.jpg" alt="MoonRanger" style="width:100%;border-radius:10px;object-fit:cover;height:220px">
-        <img src="images/mole-robot.jpg" alt="Penguin Robot" style="width:100%;border-radius:10px;object-fit:cover;height:220px">
+        <img src="images/naomi_jpl.jpg" alt="Woman at JPL" style="width:100%;border-radius:10px;object-fit:cover;height:220px">
+        <img src="images/naomi_spacex.jpg" alt="Woman at SpaceX" style="width:100%;border-radius:10px;object-fit:cover;height:220px">
       </div>
       <img src="images/starlink.jpg" alt="SpaceX Starlink" style="width:100%;border-radius:10px;object-fit:cover;height:180px">
     </div>
@@ -272,14 +273,49 @@ footer a{color:var(--copper)}
     <div class="proj-cat reveal">
       <div class="proj-cat-label">Robotics &amp; Controls</div>
       <div class="proj-grid">
-        <div class="proj-card wide"><img src="images/mole-robot.jpg" alt="Penguin Robot" style="height:200px"><div class="body"><span class="tag">Bipedal Robotics · CMU · Robomechanics Lab</span><h3>Penguin-Inspired Bipedal Robot for Low-Friction Surface Walking</h3><p>Led end-to-end design and build of a penguin-inspired bipedal robot (54 cm tall, 2.29 kg) with six rigid bodies and five Dynamixel-actuated joints. The robot uses a crank-shaft mechanism for prismatic leg extension and ellipsoidal feet with non-concentric curvature centers for passive lateral stability. Developed MuJoCo-based design optimization for body dimensions, implemented open-loop sinusoidal control at 1.39 Hz, and trained PPO for comparison. Achieved 0.165 m/s on low-friction surfaces — faster than baseline — demonstrating that morphological design improves locomotion robustness. Validated on flat ground, rough terrain, slippery surfaces, and slopes with 3 undergraduate mentees.</p></div></div>
-        <div class="proj-card text-only"><div class="body"><span class="tag">Scaling · CMU · Robomechanics Lab</span><h3>Allometric Scaling Laws for Bipedal Robots</h3><p>Analyzed hip-actuated bipedal walkers across multiple scales to derive allometric scaling laws for robotic locomotion. Created digital twins of 3 robotic systems in Drake and MuJoCo for walking and morphology trade studies. Implemented sinusoidal and PID-based hip control for stable walking across scales, optimizing leg length, foot curvature, mass distribution, and actuation parameters. Analyzed COM motion, stability metrics, torque requirements, and gait performance across scale sweeps. Led design of a 1-meter hip-actuated quasi-passive dynamic walker. Contributing to the Zippy platform — the world's smallest self-contained bipedal robot (3.6 cm) achieving 10 leg-lengths/second. Presented poster at Gordon Research Conference 2026.</p></div></div>
-        <div class="proj-card"><img src="images/ekf-slam-map.png" alt="EKF-SLAM" style="height:180px;object-fit:contain;background:#e8e4dd"><div class="body"><span class="tag">Controls · CMU · 24-677</span><h3>EKF-SLAM for Mobile Robots</h3><p>Implemented Extended Kalman Filter SLAM for simultaneous localization and mapping on a mobile robot in the Webots simulator. Built a full state estimation pipeline including prediction and update steps with landmark association, handling unknown correspondence between observations and map features.</p></div></div>
-        <div class="proj-card text-only"><div class="body"><span class="tag">Controls · CMU · 24-677</span><h3>LQR Trajectory Tracking</h3><p>Designed and tuned Linear Quadratic Regulator controllers for optimal trajectory tracking on mobile robot platforms. Derived linearized system dynamics around reference trajectories and computed optimal feedback gain matrices via the discrete algebraic Riccati equation for minimum-cost control in Webots simulation.</p></div></div>
-        <div class="proj-card text-only"><div class="body"><span class="tag">Controls · CMU · 24-677</span><h3>Model Predictive Control</h3><p>Implemented Model Predictive Control for constrained path planning with obstacle avoidance on a mobile robot. Formulated receding-horizon quadratic optimization problems accounting for input constraints, state bounds, and dynamic feasibility, solving at each timestep to generate a control trajectory.</p></div></div>
-        <div class="proj-card"><img src="images/irom-lab.png" alt="IRoM Lab"><div class="body"><span class="tag">Robotics · Princeton · IRoM Lab</span><h3>Jackal Robot Simulation</h3><p>Worked with ROS, PyBullet, and a Clearpath Jackal UGV to simulate autonomous trash-collecting behaviors in Stanford's iGibson photorealistic environments. Deployed navigation algorithms optimized for low memory usage to ensure easy translation from simulation to hardware.</p></div></div>
-        <div class="proj-card"><img src="images/mobility-aid.png" alt="Mobility Aid"><div class="body"><span class="tag">Bio-inspired · Princeton</span><h3>Bio-inspired Mobility Aid</h3><p>Group project designing a biologically-inspired assistive device for accessibility. Drew on locomotion principles from biological systems to create an assistive mechanism that could support mobility-impaired users.</p><a href="https://drive.google.com/file/d/15Zke9RVO0sIUJe6cqwfwFQMqo7HPTd97/view?usp=sharing" target="_blank" class="link">View →</a></div></div>
-        <div class="proj-card"><img src="images/building-robot.jpg" alt="MOSTEC"><div class="body"><span class="tag">MIT MOSTEC · 2018</span><h3>Royal Hummer Algorithm</h3><p>Analyzed the Royal Hummer card trick — designed by mathematicians — through combinatorics. Developed pseudocode to quantitatively describe the trick via a binary algorithm. Presented findings at MIT's Stata Center.</p></div></div>
+        <div class="proj-card wide"><img src="images/pengu.jpg" alt="Penguin Robot" style="height:200px"><div class="body"><span class="tag">Bipedal Robotics 
+          · CMU · Robomechanics Lab</span><h3>Penguin-Inspired Bipedal Robot for Low-Friction Surface Walking</h3><p>Led end-to-end design and build of a 
+            penguin-inspired bipedal robot with six rigid bodies and five Dynamixel-actuated joints. The robot uses prismatic leg extension and 
+            ellipsoidal feet with non-concentric curvature centers for passive lateral stability. Developed 
+            MuJoCo-based design optimization for body dimensions, implemented open-loop sinusoidal control, and trained PPO for comparison.
+             Achieved 0.165 m/s on low-friction surfaces demonstrating that morphological design improves locomotion robustness. 
+             Validated on flat ground, rough terrain, slippery surfaces, and slopes with 3 undergraduate mentees.</p></div></div>
+        <div class="proj-card text-only"><div class="body"><span class="tag">Scaling · CMU · Robomechanics Lab</span><h3>Allometric Scaling Laws for 
+          Bipedal Robots</h3><p>Analyzed hip-actuated bipedal walkers across multiple scales to derive allometric scaling laws for robotic locomotion. 
+            Created digital twins of 3 robotic systems in Drake and MuJoCo for walking and morphology trade studies. Implemented sinusoidal 
+            and PID-based hip control for stable walking across scales, optimizing leg length, foot curvature, mass distribution, and actuation 
+            parameters. Analyzed COM motion, stability metrics, torque requirements, and gait performance across scale sweeps. Led design of a 
+            1-meter hip-actuated quasi-passive dynamic walker. Contributing to the Zippy platform — the world's smallest self-contained bipedal 
+            robot (3.6 cm) achieving 10 leg-lengths/second. Presented poster at Gordon Research Conference 2026.</p></div></div>
+        <div class="proj-card"><img src="images/mole-robot.png" alt="Mole Robot" style="height:180px;object-fit:contain;background:#e8e4dd"><div 
+          class="body"><span class="tag">Design · CMU · 24-775</span><h3>Mole-inspired Burrowing Robot</h3><p> We built a bioinspired 
+            burrowing robot modeled after blind mole rats and desert lizards, using a four-servo pitch-and-yaw digging 
+            mechanism to move through granular media. The robot integrates a 6-DOF IMU and magnetometer with an Extended 
+            Kalman Filter for subterranean navigation using an artificial magnetic field. Testing showed the robot could 
+            skim across and breach granular media with a cost of transport comparable to burrowing animals, though vibration assist 
+            improved success rates without significantly boosting speed.</p></div></div>
+        <div class="proj-card"><img src="images/ekf-slam-map.png" alt="EKF-SLAM" style="height:180px;object-fit:contain;background:#e8e4dd"><div 
+          class="body"><span class="tag">Controls · CMU · 24-677</span><h3>EKF-SLAM for Mobile Robots</h3><p>Implemented Extended Kalman 
+            Filter SLAM for simultaneous localization and mapping on a mobile robot in the Webots simulator. Built a full state estimation pipeline 
+            including prediction and update steps with landmark association, handling unknown correspondence between observations and map features.</p></div></div>
+        <div class="proj-card text-only"><div class="body"><span class="tag">Controls · CMU · 24-677</span><h3>LQR Trajectory Tracking</h3><p>Designed 
+          and tuned Linear Quadratic Regulator controllers for optimal trajectory tracking on mobile robot platforms. Derived linearized system 
+          dynamics around reference trajectories and computed optimal feedback gain matrices via the discrete algebraic Riccati equation for 
+          minimum-cost control in Webots simulation.</p></div></div>
+        <div class="proj-card text-only"><div class="body"><span class="tag">Controls · CMU · 24-677</span><h3>Model Predictive Control</h3><p>Implemented 
+          Model Predictive Control for constrained path planning with obstacle avoidance on a mobile robot. Formulated receding-horizon quadratic 
+          optimization problems accounting for input constraints, state bounds, and dynamic feasibility, solving at each timestep to generate a control 
+          trajectory.</p></div></div>
+        <div class="proj-card"><img src="images/irom-lab.png" alt="IRoM Lab"><div class="body"><span class="tag">Robotics · Princeton · IRoM 
+          Lab</span><h3>Jackal Robot Simulation</h3><p>Worked with ROS, PyBullet, and a Clearpath Jackal UGV to simulate autonomous trash-collecting
+             behaviors in Stanford's iGibson photorealistic environments. Deployed navigation algorithms optimized for low memory usage to ensure 
+             easy translation from simulation to hardware.</p></div></div>
+        <div class="proj-card"><img src="images/mobility-aid.png" alt="Mobility Aid"><div class="body"><span class="tag">Bio-inspired · 
+          Princeton</span><h3>Bio-inspired Mobility Aid</h3><p>Group project designing a biologically-inspired assistive device for accessibility. 
+            Drew on locomotion principles from biological systems to create an assistive mechanism that could support mobility-impaired users.</p><a href="https://drive.google.com/file/d/15Zke9RVO0sIUJe6cqwfwFQMqo7HPTd97/view?usp=sharing" target="_blank" class="link">View →</a></div></div>
+        <div class="proj-card"><img src="images/building-robot.jpg" alt="MOSTEC"><div class="body"><span class="tag">MIT MOSTEC · 
+          2018</span><h3>Royal Hummer Algorithm</h3><p>Analyzed the Royal Hummer card trick — designed by mathematicians — through combinatorics. 
+            Developed pseudocode to quantitatively describe the trick via a binary algorithm. Presented findings at MIT's Stata Center.</p></div></div>
       </div>
     </div>
 

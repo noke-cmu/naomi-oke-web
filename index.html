@@ -360,16 +360,37 @@ footer a{color:rgba(255,255,255,.55)}footer a:hover{color:var(--g-blue)}
     <div class="proj-cat reveal">
       <div class="proj-cat-label">Robotics &amp; Controls</div>
       <div class="proj-grid">
+        <div class="proj-card wide"><img src="images/pengu.jpg" alt="Penguin Robot" style="height:200px"><div class="body"><span class="tag">Bipedal 
+          Robotics · CMU · Robomechanics Lab</span><h3>Penguin-Inspired Bipedal Robot for Low-Friction Surface Walking</h3><p>Led end-to-end 
+            design and build of a penguin-inspired bipedal robot with six rigid bodies and five Dynamixel-actuated joints. The robot uses 
+            prismatic leg extension and ellipsoidal feet with non-concentric curvature centers for passive lateral stability. Developed 
+            MuJoCo-based design optimization for body dimensions, implemented open-loop sinusoidal control, and trained PPO for comparison. 
+            Achieved 0.165 m/s on low-friction surfaces demonstrating that morphological design improves locomotion robustness. Validated on 
+            flat ground, rough terrain, slippery surfaces, and slopes with 3 undergraduate mentees.</p></div></div>
+        
+        <div class="proj-card text-only"><div class="body"><span class="tag">Scaling · CMU · Robomechanics Lab</span><h3>Allometric Scaling 
+          Laws for Bipedal Robots</h3><p>Analyzed hip-actuated bipedal walkers across multiple scales to derive allometric scaling laws for 
+            robotic locomotion. Created digital twins of 3 robotic systems in Drake and MuJoCo for walking and morphology trade studies. 
+            Implemented sinusoidal and PID-based hip control for stable walking across scales, optimizing leg length, foot curvature, mass 
+            distribution, and actuation parameters. Analyzed COM motion, stability metrics, torque requirements, and gait performance across 
+            scale sweeps. Led design of a 1-meter hip-actuated quasi-passive dynamic walker. Contributing to the Zippy platform, the world's 
+            smallest self-contained bipedal robot (3.6 cm) achieving 10 leg-lengths/second.</p></div></div>
  
-        <div class="proj-card wide"><img src="images/pengu.jpg" alt="Penguin Robot" style="height:200px"><div class="body"><span class="tag">Bipedal Robotics · CMU · Robomechanics Lab</span><h3>Penguin-Inspired Bipedal Robot for Low-Friction Surface Walking</h3><p>Led end-to-end design and build of a penguin-inspired bipedal robot with six rigid bodies and five Dynamixel-actuated joints. The robot uses prismatic leg extension and ellipsoidal feet with non-concentric curvature centers for passive lateral stability. Developed MuJoCo-based design optimization for body dimensions, implemented open-loop sinusoidal control, and trained PPO for comparison. Achieved 0.165 m/s on low-friction surfaces demonstrating that morphological design improves locomotion robustness. Validated on flat ground, rough terrain, slippery surfaces, and slopes with 3 undergraduate mentees.</p></div></div>
+        <div class="proj-card"><img src="images/ekf-slam-map.png" alt="EKF-SLAM" style="height:180px;object-fit:contain;background:#e8e4dd">
+          <div class="body"><span class="tag">Controls · CMU · 24-677</span><h3>EKF-SLAM for Mobile Robots</h3><p>Implemented Extended Kalman 
+            Filter SLAM for simultaneous localization and mapping on a mobile robot in the Webots simulator. Built a full state estimation pipeline 
+            including prediction and update steps with landmark association, handling unknown correspondence between observations and map 
+            features.</p></div></div>
  
-        <div class="proj-card text-only"><div class="body"><span class="tag">Scaling · CMU · Robomechanics Lab</span><h3>Allometric Scaling Laws for Bipedal Robots</h3><p>Analyzed hip-actuated bipedal walkers across multiple scales to derive allometric scaling laws for robotic locomotion. Created digital twins of 3 robotic systems in Drake and MuJoCo for walking and morphology trade studies. Implemented sinusoidal and PID-based hip control for stable walking across scales, optimizing leg length, foot curvature, mass distribution, and actuation parameters. Analyzed COM motion, stability metrics, torque requirements, and gait performance across scale sweeps. Led design of a 1-meter hip-actuated quasi-passive dynamic walker. Contributing to the Zippy platform, the world's smallest self-contained bipedal robot (3.6 cm) achieving 10 leg-lengths/second.</p></div></div>
+        <div class="proj-card text-only"><div class="body"><span class="tag">Controls · CMU · 24-677</span><h3>LQR Trajectory Tracking</h3><p>
+          Designed and tuned Linear Quadratic Regulator controllers for optimal trajectory tracking on mobile robot platforms. Derived 
+          linearized system dynamics around reference trajectories and computed optimal feedback gain matrices via the discrete algebraic 
+          Riccati equation for minimum-cost control in Webots simulation.</p></div></div>
  
-        <div class="proj-card"><img src="images/ekf-slam-map.png" alt="EKF-SLAM" style="height:180px;object-fit:contain;background:#e8e4dd"><div class="body"><span class="tag">Controls · CMU · 24-677</span><h3>EKF-SLAM for Mobile Robots</h3><p>Implemented Extended Kalman Filter SLAM for simultaneous localization and mapping on a mobile robot in the Webots simulator. Built a full state estimation pipeline including prediction and update steps with landmark association, handling unknown correspondence between observations and map features.</p></div></div>
- 
-        <div class="proj-card text-only"><div class="body"><span class="tag">Controls · CMU · 24-677</span><h3>LQR Trajectory Tracking</h3><p>Designed and tuned Linear Quadratic Regulator controllers for optimal trajectory tracking on mobile robot platforms. Derived linearized system dynamics around reference trajectories and computed optimal feedback gain matrices via the discrete algebraic Riccati equation for minimum-cost control in Webots simulation.</p></div></div>
- 
-        <div class="proj-card text-only"><div class="body"><span class="tag">Controls · CMU · 24-677</span><h3>Model Predictive Control</h3><p>Implemented Model Predictive Control for constrained path planning with obstacle avoidance on a mobile robot. Formulated receding-horizon quadratic optimization problems accounting for input constraints, state bounds, and dynamic feasibility, solving at each timestep to generate a control trajectory.</p></div></div>
+        <div class="proj-card text-only"><div class="body"><span class="tag">Controls · CMU · 24-677</span><h3>Model Predictive 
+          Control</h3><p>Implemented Model Predictive Control for constrained path planning with obstacle avoidance on a mobile robot. 
+            Formulated receding-horizon quadratic optimization problems accounting for input constraints, state bounds, and dynamic feasibility, 
+            solving at each timestep to generate a control trajectory.</p></div></div>
  
       </div>
     </div>
@@ -379,17 +400,35 @@ footer a{color:rgba(255,255,255,.55)}footer a:hover{color:var(--g-blue)}
       <div class="proj-cat-label">Deep Learning</div>
       <div class="proj-grid">
  
-        <div class="proj-card"><img src="images/gan-digits.png" alt="GAN digits"><div class="body"><span class="tag">Generative Models · CMU</span><h3>GAN for Handwritten Digit Generation</h3><p>Trained a Generative Adversarial Network from scratch in PyTorch to generate realistic MNIST-style digits. Implemented generator and discriminator architectures with batch normalization and training stabilization techniques. Generated realistic samples by iteration 70,000.</p></div></div>
+        <div class="proj-card"><img src="images/gan-digits.png" alt="GAN digits"><div class="body"><span class="tag">Generative 
+          Models · CMU</span><h3>GAN for Handwritten Digit Generation</h3><p>Trained a Generative Adversarial Network from scratch in 
+            PyTorch to generate realistic MNIST-style digits. Implemented generator and discriminator architectures with batch normalization 
+            and training stabilization techniques. Generated realistic samples by iteration 70,000.</p></div></div>
  
-        <div class="proj-card"><img src="images/airfoil-vae.png" alt="VAE airfoils"><div class="body"><span class="tag">Generative Models · CMU</span><h3>VAE for Airfoil Shape Generation</h3><p>Built a Variational Autoencoder to learn a continuous latent representation of airfoil geometries from an engineering dataset. Sampled from the learned Gaussian distribution to generate novel, physically plausible airfoil profiles for design exploration.</p></div></div>
+        <div class="proj-card"><img src="images/airfoil-vae.png" alt="VAE airfoils"><div class="body"><span class="tag">Generative Models
+          · CMU</span><h3>VAE for Airfoil Shape Generation</h3><p>Built a Variational Autoencoder to learn a continuous latent representation 
+            of airfoil geometries from an engineering dataset. Sampled from the learned Gaussian distribution to generate novel, physically 
+            plausible airfoil profiles for design exploration.</p></div></div>
  
-        <div class="proj-card text-only"><div class="body"><span class="tag">Computer Vision · CMU</span><h3>CNN Image Classification</h3><p>Designed convolutional neural networks for image classification tasks from scratch in PyTorch. Implemented batch normalization, dropout regularization, data augmentation, and residual skip connections to improve generalization.</p></div></div>
+        <div class="proj-card text-only"><div class="body"><span class="tag">Computer Vision · CMU</span><h3>CNN Image Classification</h3>
+          <p>Designed convolutional neural networks for image classification tasks from scratch in PyTorch. Implemented batch normalization, 
+            dropout regularization, data augmentation, and residual skip connections to improve generalization.</p></div></div>
  
-        <div class="proj-card text-only"><div class="body"><span class="tag">Attention · CMU</span><h3>Attention &amp; Transformers</h3><p>Implemented self-attention mechanisms and full transformer encoder-decoder architectures for sequence-to-sequence tasks. Built positional encoding, multi-head attention, and masked self-attention layers for autoregressive generation.</p></div></div>
+        <div class="proj-card text-only"><div class="body"><span class="tag">Attention · CMU</span><h3>Attention &amp; Transformers</h3>
+          <p>Implemented self-attention mechanisms and full transformer encoder-decoder architectures for sequence-to-sequence tasks. Built 
+            positional encoding, multi-head attention, and masked self-attention layers for autoregressive generation.</p></div></div>
  
-        <div class="proj-card"><img src="images/topology-opt.png" alt="Topology Optimization"><div class="body"><span class="tag">Optimization · CMU · 24-787</span><h3>Topology Optimization with ML</h3><p>Applied machine learning methods to structural topology optimization problems. Trained models to predict optimal material distributions under various loading conditions, using stress-field visualizations to evaluate structural performance across multiple candidate geometries.</p></div></div>
+        <div class="proj-card"><img src="images/topology-opt.png" alt="Topology Optimization"><div class="body"><span class="tag">
+          Optimization · CMU · 24-787</span><h3>Topology Optimization with ML</h3><p>Applied machine learning methods to structural topology 
+            optimization problems. Trained models to predict optimal material distributions under various loading conditions, using stress-field 
+            visualizations to evaluate structural performance across multiple candidate geometries.</p></div></div>
  
-        <div class="proj-card text-only"><div class="body"><span class="tag">Classification · CMU · 24-787</span><h3>SVM &amp; Decision Tree Classification</h3><p>Implemented support vector machines with linear, polynomial, and RBF kernels alongside decision tree classifiers. Compared one-vs-one and one-vs-rest multi-class strategies, analyzing margin size, decision boundaries, and generalization on engineering datasets. Applied PCA for dimensionality reduction, normalization and standardization for feature scaling, log transforms for skewed distributions, and K-means clustering for pattern discovery in high-dimensional engineering datasets with outliers.</p></div></div>
+        <div class="proj-card text-only"><div class="body"><span class="tag">Classification · CMU · 24-787</span><h3>SVM &amp; Decision 
+          Tree Classification</h3><p>Implemented support vector machines with linear, polynomial, and RBF kernels alongside decision tree 
+            classifiers. Compared one-vs-one and one-vs-rest multi-class strategies, analyzing margin size, decision boundaries, and 
+            generalization on engineering datasets. Applied PCA for dimensionality reduction, normalization and standardization for 
+            feature scaling, log transforms for skewed distributions, and K-means clustering for pattern discovery in high-dimensional 
+            engineering datasets with outliers.</p></div></div>
  
       </div>
     </div>
@@ -399,14 +438,27 @@ footer a{color:rgba(255,255,255,.55)}footer a:hover{color:var(--g-blue)}
       <div class="proj-cat-label">Aerospace</div>
       <div class="proj-grid">
  
-        <div class="proj-card text-only"><div class="body"><span class="tag">Orbital Mechanics · Princeton</span><h3>Lagrange Point Mission Design</h3><p>Designed a complete space mission trajectory and operations plan for a Lagrange point destination, including orbital transfer calculations, delta-v budgets, and mission timeline.</p><a href="https://drive.google.com/drive/folders/1dA0ptisk9mVwTDB-jmB8BBUfspHS9p7f?usp=sharing" target="_blank" class="link">View →</a></div></div>
+        <div class="proj-card text-only"><div class="body"><span class="tag">Orbital Mechanics · Princeton</span><h3>Lagrange Point 
+          Mission Design</h3><p>Designed a complete space mission trajectory and operations plan for a Lagrange point destination, including 
+            orbital transfer calculations, delta-v budgets, and mission timeline.</p>
+          <a href="https://drive.google.com/drive/folders/1dA0ptisk9mVwTDB-jmB8BBUfspHS9p7f?usp=sharing" target="_blank" 
+            class="link">View →</a></div></div>
  
-        <div class="proj-card"><img src="images/detonation-engine.png" alt="Engine"><div class="body"><span class="tag">Propulsion · Princeton</span><h3>Detonation Engine System</h3><p>Group project exploring the design and feasibility of a reusable rotating detonation engine for next-generation aerospace propulsion, analyzing thermodynamic cycles and structural requirements.</p><a href="https://drive.google.com/drive/folders/1KyCvlTa0N6FJYXOHzGduaG54Tb87g6rO?usp=sharing" target="_blank" class="link">View →</a></div></div>
-        <div class="proj-card"><img src="images/mars-mission.jpg" alt="Mars"><div class="body"><span class="tag">NASA / SEES · 2018</span><h3>Mars Habitat &amp; Mission Design</h3><p>Designed a crewed Mars trip for 7–14 astronauts alongside NASA scientists and UT Austin faculty. Led habitat design, 3D modeling, cost estimates, water recycling, and the repair &amp; emergency module. Presented findings at NASA Johnson Space Center.</p><a href="https://drive.google.com/drive/folders/1pjDDkE_KGKhvM5O7WoHVDqvLO5MxVQoN?usp=drive_link" target="_blank" class="link">View →</a></div></div>
+        <div class="proj-card"><img src="images/detonation-engine.png" alt="Engine"><div class="body"><span class="tag">
+          Propulsion · Princeton</span><h3>Detonation Engine System</h3><p>Group project exploring the design and feasibility of a 
+            reusable rotating detonation engine for next-generation aerospace propulsion, analyzing thermodynamic cycles and structural 
+            requirements.</p><a href="https://drive.google.com/drive/folders/1KyCvlTa0N6FJYXOHzGduaG54Tb87g6rO?usp=sharing" 
+                               target="_blank" class="link">View →</a></div></div>
+        
+        <div class="proj-card"><img src="images/mars-mission.jpg" alt="Mars"><div class="body"><span class="tag">NASA/SEES · 2018</span>
+          <h3>Mars Habitat &amp; Mission Design</h3><p>Designed a crewed Mars trip for 7–14 astronauts alongside NASA scientists and UT 
+            Austin faculty. Led habitat design, 3D modeling, cost estimates, water recycling, and the repair &amp; emergency module. 
+            Presented findings at NASA Johnson Space Center.</p>
+          <a href="https://drive.google.com/drive/folders/1pjDDkE_KGKhvM5O7WoHVDqvLO5MxVQoN?usp=drive_link" target="_blank" 
+            class="link">View →</a></div></div>
  
       </div>
     </div>
- 
   </div>
 </div>
 

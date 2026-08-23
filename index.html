@@ -3,534 +3,520 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Naomi Oke — Roboticist, MechE, & Aerospace Engineer</title>
+<title>Naomi Oke</title>
+<meta name="description" content="Naomi Oke is a Ph.D. candidate in Mechanical Engineering at Carnegie Mellon, researching legged locomotion.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;1,700;1,800&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+/* ============================================================
+   Naomi Oke — minimal
+   Display: Space Grotesk · Body: Inter
+   White background, restrained accents in muted
+   shades of blue / red / yellow
+   ============================================================ */
 :root{
-  --white:#ffffff;--black:#0d0d0d;--gray:#f5f5f5;--mid:#6b6b6b;--light:#e4e4e4;
-  --g-blue:#4285F4;--g-red:#EA4335;--g-yellow:#FBBC05;--g-green:#34A853;
-  --text-dark:#0d0d0d;--text-mid:#555;--text-light:#999;
-  --display:'Barlow Condensed',sans-serif;
-  --sans:'Space Grotesk',sans-serif;
-  --body:'Inter',sans-serif;
+  --white:#ffffff;
+  --ink:#222226;
+  --muted:#5c5c66;
+  --faint:#9a9aa4;
+  --line:#e8e8ee;
+
+  --blue:#3d6ab3;   --blue-soft:#eef2f8;  --blue-ink:#2b4d85;
+  --red:#cf4a3c;    --red-soft:#fbeeec;   --red-ink:#a2372c;
+  --yellow:#c9910f; --yellow-soft:#f7f0da;--yellow-ink:#87610a;
+
+  --r:10px; --r-sm:8px; --pill:999px;
+  --display:'Space Grotesk', system-ui, sans-serif;
+  --body:'Inter', system-ui, sans-serif;
+  --wrap:940px;
 }
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:var(--body);background:#fff;color:var(--text-dark);line-height:1.75;font-size:15px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-::selection{background:var(--g-blue);color:#fff}
-a{color:inherit;text-decoration:none;transition:color .2s}
-img{max-width:100%;height:auto}
+body{font-family:var(--body);background:var(--white);color:var(--ink);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--blue-soft)}
+a{color:var(--blue-ink);text-decoration:none;font-weight:500;transition:color .16s}
+a:hover{color:var(--red-ink)}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 1.6rem}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:4px}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.1rem 3rem;display:flex;align-items:center;justify-content:space-between;transition:background .3s,box-shadow .3s}
-nav.scrolled{background:rgba(255,255,255,.96);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 1px 0 rgba(0,0,0,.1)}
-nav .name{font-family:var(--display);font-size:1.6rem;font-weight:800;letter-spacing:.02em;color:var(--black);text-transform:uppercase}
-nav .links{display:flex;gap:2rem;align-items:center}
-nav .links a{font-family:var(--sans);font-size:.7rem;font-weight:500;text-transform:uppercase;letter-spacing:.1em;color:var(--text-mid);transition:color .2s}
-nav .links a:hover{color:var(--black)}
-nav .links .cta-sm{background:var(--black);color:#fff;padding:.45rem 1.1rem;border-radius:2px;font-family:var(--sans);font-size:.68rem;letter-spacing:.08em;font-weight:600}
-nav .links .cta-sm:hover{background:var(--g-blue)}
-.menu-btn{display:none;background:none;border:none;cursor:pointer;padding:4px}
-.menu-btn svg{width:24px;height:24px;stroke:var(--black);stroke-width:2;fill:none}
+/* ---------- Header / nav ---------- */
+.site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.site-header .bar{max-width:var(--wrap);margin:0 auto;padding:.9rem 1.6rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.brand{font-family:var(--display);font-weight:600;font-size:1.15rem;color:var(--ink);display:flex;align-items:center;gap:.55rem;letter-spacing:.01em}
+.brand:hover{color:var(--ink)}
+.brand .mark{display:inline-flex;gap:4px}
+.brand .mark i{width:7px;height:7px;border-radius:50%;display:block}
+.brand .mark i:nth-child(1){background:var(--blue)}
+.brand .mark i:nth-child(2){background:var(--red)}
+.brand .mark i:nth-child(3){background:var(--yellow)}
+nav.nav{display:flex;flex-wrap:wrap;gap:.15rem}
+.nav-link{font-family:var(--display);font-weight:500;font-size:.86rem;color:var(--muted);padding:.3rem .6rem;border-radius:var(--r-sm);transition:color .16s,background .16s}
+.nav-link:hover{color:var(--ink);background:var(--blue-soft)}
+.nav-link.active{color:var(--blue-ink);box-shadow:inset 0 -2px 0 var(--blue)}
 
-/* HERO */
-.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:8rem 3rem 4rem;border-bottom:2px solid var(--black)}
-.hero-bg{position:absolute;inset:0;z-index:0}.hero-bg canvas{width:100%;height:100%}
-.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;max-width:1200px;margin:0 auto;width:100%}
-.hero-text h1{font-family:var(--display);font-size:clamp(4.5rem,9vw,8rem);font-weight:800;line-height:.92;letter-spacing:-.01em;text-transform:uppercase;margin-bottom:1.4rem}
-.hero-text h1 em{font-style:italic;color:var(--g-red)}
-.hero-text .sub{font-family:var(--body);font-size:.95rem;color:var(--text-mid);margin-bottom:2rem;max-width:400px;line-height:1.8}
-.hero-text .hero-btns{display:flex;gap:.7rem;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.5rem;border-radius:2px;font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;transition:all .22s}
-.btn-dark{background:var(--black);color:#fff}.btn-dark:hover{background:var(--g-blue);transform:translateY(-2px)}
-.btn-outline{border:2px solid var(--black);color:var(--black)}.btn-outline:hover{border-color:var(--g-blue);color:var(--g-blue)}
-.hero-img{position:relative}.hero-img img{width:100%;max-width:440px;border-radius:4px;box-shadow:6px 6px 0 var(--g-yellow);float:right}
-.hero-img .caption{position:absolute;bottom:-1.6rem;right:0;font-size:.62rem;color:var(--text-light);font-style:italic;font-family:var(--body)}
-.hero-scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:.4rem;animation:bobble 2.5s ease infinite}
-.hero-scroll span{font-family:var(--sans);font-size:.56rem;text-transform:uppercase;letter-spacing:.2em;color:var(--text-light)}
-.hero-scroll svg{width:18px;height:18px;stroke:var(--text-light);stroke-width:2;fill:none}
-@keyframes bobble{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+/* ---------- Pages ---------- */
+.page{display:none;padding:3.2rem 0 4rem}
+.page.active{display:block}
+@media(prefers-reduced-motion:no-preference){
+  .page.active{animation:fade .3s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+}
+.page-head{margin-bottom:2.4rem}
+.eyebrow{display:block;font-family:var(--display);font-weight:500;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin-bottom:.7rem}
+h1.title{font-family:var(--display);font-weight:600;font-size:clamp(1.9rem,4.4vw,2.6rem);line-height:1.08;letter-spacing:-.01em}
+.lede{font-size:1.05rem;color:var(--muted);margin-top:.9rem;max-width:60ch}
 
-/* STATS */
-.about-strip{background:var(--black);color:#fff;padding:4rem 3rem}
-.about-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2.5rem}
-.about-stat{text-align:center}
-.about-stat:nth-child(1) .num{color:var(--g-blue)}
-.about-stat:nth-child(2) .num{color:var(--g-red)}
-.about-stat:nth-child(3) .num{color:var(--g-yellow)}
-.about-stat:nth-child(4) .num{color:var(--g-green)}
-.about-stat .num{font-family:var(--display);font-size:3.2rem;font-weight:800;line-height:1;text-transform:uppercase;letter-spacing:-.01em}
-.about-stat .label{font-family:var(--sans);font-size:.62rem;text-transform:uppercase;letter-spacing:.14em;color:rgba(255,255,255,.45);margin-top:.4rem}
+h2.sec-title{font-family:var(--display);font-weight:600;font-size:1.25rem;margin:2.8rem 0 1.2rem;display:flex;align-items:center;gap:.55rem;letter-spacing:-.005em}
+h2.sec-title::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--blue);flex:none}
+h2.sec-title.r::before{background:var(--red)} h2.sec-title.y::before{background:var(--yellow)}
 
-/* SECTIONS */
-.sec{padding:6rem 3rem;max-width:1200px;margin:0 auto}
-.sec-dark{background:var(--black);color:#fff;max-width:100%}
-.sec-dark .sec-inner{max-width:1200px;margin:0 auto;padding:6rem 3rem}
-.sec-warm{background:var(--gray);max-width:100%}
-.sec-warm .sec-inner{max-width:1200px;margin:0 auto;padding:6rem 3rem}
-.sec-tag{display:inline-block;font-family:var(--sans);font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.16em;margin-bottom:.8rem;padding:.28rem .75rem;border-radius:2px}
-.sec-tag.blue{background:var(--g-blue);color:#fff}
-.sec-tag.red{background:var(--g-red);color:#fff}
-.sec-tag.yellow{background:var(--g-yellow);color:var(--black)}
-.sec-tag.green{background:var(--g-green);color:#fff}
-.sec-title{font-family:var(--display);font-size:clamp(2.8rem,5.5vw,4.5rem);font-weight:800;line-height:.95;letter-spacing:-.01em;text-transform:uppercase;margin-bottom:.7rem}
-.sec-sub{font-family:var(--body);color:var(--text-mid);font-size:.92rem;max-width:550px;margin-bottom:3rem;line-height:1.8}
-.sec-dark .sec-sub{color:rgba(255,255,255,.5)}
+/* ---------- Home ---------- */
+.hero{display:grid;grid-template-columns:1fr 300px;gap:3rem;align-items:center}
+.hi{font-family:var(--display);font-weight:600;font-size:clamp(2rem,5vw,3rem);line-height:1.04;letter-spacing:-.015em}
+.hero .role{font-family:var(--display);font-weight:400;color:var(--muted);font-size:1.1rem;margin-top:.5rem}
+.hero p{margin-top:1.2rem;color:var(--muted);max-width:52ch}
+.hero .accent-rule{width:52px;height:3px;background:var(--red);border-radius:2px;margin-top:1.4rem}
+.hero-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.4rem}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.7rem}
+.btn{font-family:var(--display);font-weight:500;font-size:.9rem;padding:.55rem 1.15rem;border-radius:var(--r-sm);border:1px solid var(--ink);background:var(--white);color:var(--ink);cursor:pointer;transition:background .16s,color .16s}
+.btn:hover{background:var(--ink);color:#fff}
+.btn.primary{background:var(--blue);border-color:var(--blue);color:#fff}
+.btn.primary:hover{background:var(--blue-ink);border-color:var(--blue-ink);color:#fff}
 
-/* TYPOGRAPHY */
-h1,h2,h3,h4{font-family:var(--display)}
+/* photo frame (quiet) */
+.frame{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--blue-soft)}
+.frame.portrait{aspect-ratio:4/5}.frame.square{aspect-ratio:1/1}
+.frame img,.frame .ph{width:100%;height:100%;object-fit:cover;display:block}
+.frame .ph{display:flex;align-items:center;justify-content:center;color:var(--faint);font-size:.78rem;font-family:var(--display);letter-spacing:.04em;text-align:center;padding:.5rem}
+.cap{text-align:center;font-size:.72rem;color:var(--faint);margin-top:.5rem}
 
-/* EXPERIENCE */
-.exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.07)}
-.exp-card{background:#181818;border:none;border-radius:0;padding:1.8rem;transition:background .2s;position:relative;overflow:hidden}
-.exp-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%}
-.exp-card:nth-child(1)::before,.exp-card:nth-child(5)::before{background:var(--g-blue)}
-.exp-card:nth-child(2)::before,.exp-card:nth-child(6)::before{background:var(--g-red)}
-.exp-card:nth-child(3)::before,.exp-card:nth-child(7)::before{background:var(--g-yellow)}
-.exp-card:nth-child(4)::before,.exp-card:nth-child(8)::before{background:var(--g-green)}
-.exp-card:hover{background:#222}
-.exp-card .year{font-family:var(--sans);font-size:.6rem;font-weight:600;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.4rem}
-.exp-card h3{font-family:var(--display);font-size:1.5rem;font-weight:700;text-transform:uppercase;letter-spacing:.01em;margin-bottom:.1rem;color:#fff}
-.exp-card .role{font-family:var(--sans);font-size:.76rem;color:rgba(255,255,255,.45);margin-bottom:.7rem}
-.exp-card p{font-family:var(--body);font-size:.78rem;color:rgba(255,255,255,.4);line-height:1.65}
+/* ---------- Cards ---------- */
+.cards{display:grid;gap:.9rem}
+.cards.two{grid-template-columns:1fr 1fr}
+.card{background:#fff;border:1px solid var(--line);border-left:3px solid var(--c,var(--line));border-radius:var(--r);padding:1.1rem 1.3rem;transition:box-shadow .16s,transform .16s}
+.card:hover{box-shadow:0 8px 24px rgba(30,30,60,.07);transform:translateY(-1px)}
+.cards .card:nth-child(3n+1),.stack .card:nth-child(3n+1){--c:var(--blue)}
+.cards .card:nth-child(3n+2),.stack .card:nth-child(3n+2){--c:var(--red)}
+.cards .card:nth-child(3n+3),.stack .card:nth-child(3n+3){--c:var(--yellow)}
+.card .when{font-family:var(--display);font-weight:500;font-size:.74rem;color:var(--faint);display:block;margin-bottom:.35rem;letter-spacing:.02em}
+.card h3{font-family:var(--display);font-weight:600;font-size:1.08rem;line-height:1.28}
+.card .role-line{font-size:.9rem;color:var(--muted);font-weight:500;margin-top:.1rem}
+.card p{font-size:.9rem;color:var(--muted);margin-top:.5rem}
+.stack{display:grid;gap:.9rem}
 
-/* PROJECTS */
-.proj-cat{margin-bottom:3.5rem}
-.proj-cat-label{font-family:var(--display);font-size:1.1rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--black);margin-bottom:1rem;display:flex;align-items:center;gap:.8rem}
-.proj-cat-label::after{content:'';flex:1;height:2px;background:var(--black)}
-.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--light)}
-.proj-card{background:#fff;border:none;border-radius:0;overflow:hidden;transition:background .2s}
-.proj-card:hover{background:var(--gray)}
-.proj-card img{width:100%;height:180px;object-fit:cover;display:block}
-.proj-card .body{padding:1.3rem 1.4rem}
-.proj-card .tag{font-family:var(--sans);font-size:.56rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--text-light);margin-bottom:.4rem;display:block}
-.proj-card h3{font-family:var(--display);font-size:1.1rem;font-weight:700;text-transform:uppercase;letter-spacing:.01em;margin-bottom:.3rem;line-height:1.15}
-.proj-card p{font-family:var(--body);font-size:.78rem;color:var(--text-mid);line-height:1.6;margin-bottom:.6rem}
-.proj-card a.link{font-family:var(--sans);font-size:.64rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--g-blue)}
-.proj-card.text-only{background:var(--gray)}.proj-card.text-only .body{padding:1.5rem 1.6rem}
-.proj-card.wide{grid-column:span 2}
+/* publications */
+.pub .ptype{font-family:var(--display);font-weight:500;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--c);display:block;margin-bottom:.4rem}
+.pub h3{margin-bottom:.3rem}
+.pub .authors{font-size:.88rem;color:var(--ink)}
+.pub .venue{font-size:.82rem;color:var(--faint);margin-top:.15rem}
 
-/* PUBLICATIONS */
-.pub-list{list-style:none}
-.pub-item{padding:1.4rem 0;border-bottom:1px solid var(--light);display:grid;grid-template-columns:12px 1fr;gap:0 1.2rem;align-items:start}
-.pub-item:last-child{border:none}
-.pub-dot{width:10px;height:10px;border-radius:50%;margin-top:.38rem;flex-shrink:0}
-.pub-item:nth-child(1) .pub-dot{background:var(--g-blue)}
-.pub-item:nth-child(2) .pub-dot{background:var(--g-red)}
-.pub-item:nth-child(3) .pub-dot{background:var(--g-yellow)}
-.pub-item:nth-child(4) .pub-dot{background:var(--g-green)}
-.pub-item:nth-child(5) .pub-dot{background:var(--g-blue)}
-.pub-body{}
-.pub-item .pub-type{font-family:var(--sans);font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--text-light);margin-bottom:.3rem;display:block}
-.pub-item h4{font-family:var(--display);font-size:1.2rem;font-weight:700;text-transform:uppercase;letter-spacing:-.01em;margin-bottom:.25rem;line-height:1.1}
-.pub-item .authors{font-family:var(--body);font-size:.78rem;color:var(--text-mid);margin-bottom:.15rem}
-.pub-item .venue{font-family:var(--body);font-size:.73rem;color:var(--text-light);font-style:italic}
+/* awards */
+.award{display:grid;grid-template-columns:auto 1fr;gap:0 1rem;align-items:baseline}
+.award .yr{font-family:var(--display);font-weight:600;font-size:1.25rem;color:var(--c)}
+.award h3{font-size:1.02rem}.award p{margin-top:.1rem}
 
-/* AWARDS */
-.awards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.07)}
-.award{background:#181818;border:none;border-radius:0;padding:1.8rem;text-align:left;position:relative;overflow:hidden}
-.award::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px}
-.award:nth-child(1)::after{background:var(--g-blue)}
-.award:nth-child(2)::after{background:var(--g-red)}
-.award:nth-child(3)::after{background:var(--g-green)}
-.award .yr{font-family:var(--display);font-size:3rem;font-weight:800;line-height:1;margin-bottom:.4rem;color:rgba(255,255,255,.08)}
-.award h4{font-family:var(--display);font-size:1.1rem;font-weight:700;text-transform:uppercase;color:#fff;margin-bottom:.25rem}
-.award p{font-family:var(--body);font-size:.75rem;color:rgba(255,255,255,.4)}
+/* mentees */
+.mentees{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem}
+.mentee{border:1px solid var(--line);border-top:2px solid var(--c);border-radius:var(--r-sm);padding:.7rem .9rem}
+.mentees .mentee:nth-child(3n+1){--c:var(--blue)}
+.mentees .mentee:nth-child(3n+2){--c:var(--red)}
+.mentees .mentee:nth-child(3n+3){--c:var(--yellow)}
+.mentee h3{font-family:var(--display);font-weight:500;font-size:.95rem;line-height:1.2}
+.mentee span{font-size:.74rem;color:var(--faint)}
 
-/* LEADERSHIP */
-.lead-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--light)}
-.lead-card{background:#fff;border:none;border-radius:0;padding:1.6rem 1.8rem;position:relative}
-.lead-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:3px}
-.lead-card:nth-child(1)::before{background:var(--g-blue)}
-.lead-card:nth-child(2)::before{background:var(--g-red)}
-.lead-card:nth-child(3)::before{background:var(--g-yellow)}
-.lead-card:nth-child(4)::before{background:var(--g-green)}
-.lead-card:nth-child(5)::before{background:var(--g-blue)}
-.lead-card:nth-child(6)::before{background:var(--g-red)}
-.lead-card .tag{font-family:var(--sans);font-size:.56rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--text-light);margin-bottom:.35rem;display:block}
-.lead-card h4{font-family:var(--display);font-size:1.15rem;font-weight:700;text-transform:uppercase;margin-bottom:.3rem;letter-spacing:.01em}
-.lead-card p{font-family:var(--body);font-size:.78rem;color:var(--text-mid);line-height:1.65}
+/* tags */
+.tags{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.3rem}
+.tag{font-family:var(--display);font-weight:500;font-size:.82rem;padding:.28rem .75rem;border-radius:var(--pill);border:1px solid var(--c,var(--line));color:var(--c-ink,var(--muted));background:var(--white)}
+.tags .tag:nth-child(3n+1){--c:var(--blue);--c-ink:var(--blue-ink)}
+.tags .tag:nth-child(3n+2){--c:var(--red);--c-ink:var(--red-ink)}
+.tags .tag:nth-child(3n+3){--c:var(--yellow);--c-ink:var(--yellow-ink)}
 
-/* SKILLS */
-.skills-section{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
-.skill-group h4{font-family:var(--sans);font-size:.64rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--black);margin-bottom:.6rem;padding-bottom:.3rem;border-bottom:2px solid var(--black)}
-.pills{display:flex;flex-wrap:wrap;gap:.3rem;margin-bottom:1.5rem}
-.pill{padding:.26rem .75rem;border-radius:2px;font-family:var(--sans);font-size:.68rem;font-weight:500;background:#fff;color:var(--text-dark);border:1.5px solid var(--light);transition:all .2s}
-.pill:hover{border-color:var(--g-blue);color:var(--g-blue)}
+/* coursework */
+.cw{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+.cw .card h3{margin-bottom:.55rem}
+.cw ul{list-style:none;display:grid;gap:.15rem}
+.cw li{font-size:.88rem;color:var(--ink);padding:.28rem 0;border-bottom:1px solid var(--line)}
+.cw li:last-child{border-bottom:none}
+.cw li .code{color:var(--faint);font-size:.76rem}
 
-/* MENTEES */
-.mentee-row{display:flex;flex-wrap:wrap;gap:1px;background:rgba(255,255,255,.07)}
-.mentee{background:#181818;border:none;border-radius:0;padding:1rem 1.3rem;flex:1;min-width:180px}
-.mentee h4{font-family:var(--display);font-size:1.05rem;font-weight:700;text-transform:uppercase;color:#fff;margin-bottom:.1rem}
-.mentee span{font-family:var(--body);font-size:.68rem;color:rgba(255,255,255,.35)}
+/* about */
+.about{display:grid;grid-template-columns:1fr 240px;gap:2.4rem;align-items:start}
+.about p{color:var(--muted)}
+.about p+p{margin-top:1rem}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-top:.7rem}
 
-/* CONTACT */
-.contact-row{display:flex;gap:.6rem;flex-wrap:wrap}
-.contact-chip{display:inline-flex;align-items:center;gap:.4rem;padding:.58rem 1.2rem;border-radius:2px;font-family:var(--sans);font-size:.72rem;font-weight:500;background:#fff;border:1.5px solid var(--light);color:var(--text-dark);transition:all .2s}
-.contact-chip:hover{border-color:var(--black);color:var(--black)}
+/* contact */
+.contact-list{list-style:none;margin-top:.4rem;border-top:1px solid var(--line)}
+.contact-list li{display:grid;grid-template-columns:16px 130px 1fr;gap:0 1rem;align-items:center;padding:.85rem 0;border-bottom:1px solid var(--line)}
+.contact-list .d{width:9px;height:9px;border-radius:50%;background:var(--c)}
+.contact-list li:nth-child(3n+1){--c:var(--blue)}
+.contact-list li:nth-child(3n+2){--c:var(--red)}
+.contact-list li:nth-child(3n+3){--c:var(--yellow)}
+.contact-list .k{font-family:var(--display);font-weight:500;font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
+.contact-list .v{font-weight:500;color:var(--ink)}
 
-/* COURSEWORK */
-.cw-section{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
-.cw-group{margin-bottom:1.8rem}
-.cw-group h4{font-family:var(--sans);font-size:.64rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--black);margin-bottom:.5rem}
-.cw-list{font-family:var(--body);font-size:.82rem;color:var(--text-mid);line-height:1.9}
+/* ---------- Footer ---------- */
+.site-footer{border-top:1px solid var(--line);margin-top:3rem;padding:2.2rem 0}
+.site-footer .inner{max-width:var(--wrap);margin:0 auto;padding:0 1.6rem;display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between}
+.foot-brand{font-family:var(--display);font-weight:600}
+.foot-links{display:flex;flex-wrap:wrap;gap:1.1rem}
+.foot-links a{font-size:.82rem;color:var(--muted);font-weight:500}
+.foot-links a:hover{color:var(--ink)}
+.copyright{font-size:.76rem;color:var(--faint);width:100%;text-align:center;margin-top:.4rem}
 
-/* MEMBERSHIP PILLS */
-.membership-row{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin-top:1.5rem}
-/* .membership-pill{padding:.32rem 1rem;border-radius:2px;font-family:var(--sans);font-size:.72rem;font-weight:500;background:rgba(255,255,255,.05);color:rgba(255,255,255,.45);border:1px solid rgba(255,255,255,.1)} */
-.membership-pill{padding:.32rem 1rem;border-radius:2px;font-family:var(--sans);font-size:.72rem;font-weight:500;background:#fff;color:var(--black);border:1.5px solid var(--black)}
-  
-footer{background:var(--black);padding:3rem;text-align:center;color:rgba(255,255,255,.3);font-family:var(--sans);font-size:.7rem}
-footer a{color:rgba(255,255,255,.55)}footer a:hover{color:var(--g-blue)}
-
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.reveal-d1{transition-delay:.1s}.reveal-d2{transition-delay:.2s}
-
-@media(max-width:1024px){.hero-grid{grid-template-columns:1fr;text-align:center}.hero-text .sub{margin-left:auto;margin-right:auto}.hero-text .hero-btns{justify-content:center}.hero-img img{float:none;max-width:320px;margin:0 auto}.hero-img .caption{right:auto;left:50%;transform:translateX(-50%)}.exp-grid,.lead-grid,.skills-section,.cw-section{grid-template-columns:1fr}.proj-grid{grid-template-columns:1fr 1fr}.proj-card.wide{grid-column:span 1}.about-inner{grid-template-columns:repeat(2,1fr)}.awards-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:640px){nav{padding:1rem 1.5rem}nav .links{display:none}nav .links.open{display:flex;flex-direction:column;position:fixed;top:56px;left:0;right:0;background:#fff;padding:2rem;gap:1.5rem;border-bottom:2px solid var(--black)}.menu-btn{display:block}.hero{padding:7rem 1.5rem 3rem}.sec,.sec-dark .sec-inner,.sec-warm .sec-inner{padding:4rem 1.5rem}.about-inner{grid-template-columns:1fr;gap:1.5rem}.proj-grid,.awards-grid{grid-template-columns:1fr}.hero-text h1{font-size:3.5rem}}
+/* ---------- Responsive ---------- */
+@media(max-width:800px){
+  .hero{grid-template-columns:1fr}.hero .frame{max-width:260px}
+  .about{grid-template-columns:1fr}.about .frame{max-width:240px}
+  .cards.two,.cw{grid-template-columns:1fr}
+  .mentees{grid-template-columns:1fr 1fr}
+}
+@media(max-width:460px){
+  .mentees{grid-template-columns:1fr}
+  .contact-list li{grid-template-columns:16px 1fr;gap:.1rem 1rem}
+  .contact-list .v{grid-column:2}
+}
 </style>
 </head>
 <body>
-<nav id="nav">
-  <a href="#" class="name">Naomi Oke</a>
-  <div class="links" id="nav-links">
-    <a href="#about">About</a><a href="#experience">Experience</a><a href="#publications">Publications</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#leadership">Leadership</a><a href="#coursework">Coursework</a><a href="#contact" class="cta-sm">Contact</a>
+
+<header class="site-header">
+  <div class="bar">
+    <a href="#home" class="brand"><span class="mark"><i></i><i></i><i></i></span>Naomi Oke</a>
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-link" data-page="home" href="#home">Home</a>
+      <a class="nav-link" data-page="about" href="#about">About</a>
+      <a class="nav-link" data-page="experience" href="#experience">Experience</a>
+      <a class="nav-link" data-page="publications" href="#publications">Publications</a>
+      <a class="nav-link" data-page="coursework" href="#coursework">Coursework</a>
+      <a class="nav-link" data-page="service" href="#service">Service</a>
+      <a class="nav-link" data-page="contact" href="#contact">Contact</a>
+    </nav>
   </div>
-  <button class="menu-btn" onclick="document.getElementById('nav-links').classList.toggle('open')" aria-label="Menu"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
-</nav>
+</header>
 
-<!-- ══════ HERO ══════ -->
-<section class="hero">
-  <div class="hero-bg"><canvas id="starsCanvas"></canvas></div>
-  <div class="hero-grid">
-    <div class="hero-text">
-      <h1 class="reveal">Roboticist.<br><em>Engineer.</em></h1>
-      <p class="sub reveal reveal-d1">Ph.D. Candidate at Carnegie Mellon building robots that move intelligently: from centimeter-scale walkers to lunar rovers.</p>
-      <div class="hero-btns reveal reveal-d2">
-        <!-- <a href="#projects" class="btn btn-dark">View My Work</a> -->
-        <a href="#contact" class="btn btn-outline">Get in Touch</a>
-      </div>
-    </div>
-    <div class="hero-img reveal reveal-d2">
-      <img src="images/naomi-hero.jpg" alt="Naomi Oke">
-      <span class="caption">📸 Chad Isaiah Studios</span>
-    </div>
-  </div>
-  <div class="hero-scroll"><span>Scroll</span><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
-</section>
+<main class="wrap">
 
-<!-- ══════ STATS ══════ -->
-<div class="about-strip" id="about">
-  <div class="about-inner">
-    <div class="about-stat reveal"><div class="num">2×</div><div class="label">SpaceX Intern</div></div>
-    <div class="about-stat reveal reveal-d1"><div class="num">JPL</div><div class="label">Mars Sample Return</div></div>
-    <div class="about-stat reveal reveal-d1"><div class="num">CMU</div><div class="label">PhD · Robomechanics Lab</div></div>
-    <!-- <div class="about-stat reveal reveal-d1"><div class="num">Princeton</div><div class="label">BSE · IRoM Lab, BAMLab</div></div> -->
-    <div class="about-stat reveal reveal-d2"><div class="num">2x</div><div class="label">ICRA Workshop Organizer</div></div>
-  </div>
-</div>
-
-<!-- ══════ ABOUT ══════ -->
-<section class="sec">
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start">
-    <div class="reveal">
-      <span class="sec-tag">About Me</span>
-      <h2 class="sec-title">Hi!</h2>
-      <p class="sec-sub" style="max-width:100%">I'm a third-year Ph.D. candidate in Mechanical Engineering at Carnegie Mellon, working in the <a href="https://www.cmu.edu/me/robomechanicslab/" target="_blank">Robomechanics Lab</a> on design optimization, legged locomotion, and bipedal dynamics across length scales. I earned my B.S.E. from Princeton University in Mechanical &amp; Aerospace Engineering with a certificate in Robotics &amp; Intelligent Systems. My research spans hip-actuated walkers, penguin-inspired bipeds, and allometric scaling laws for robotic locomotion.I enjoy creative writing, hand-drawn 2D animation, learning new languages, hiking, and photography.</p>
-    </div>
-    <div class="reveal reveal-d2" style="display:flex;flex-direction:column;gap:1rem;padding-top:2.5rem">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
-        <img src="images/naomi_grad2.png" alt="Woman in graduation attire" style="width:100%;border-radius:10px;object-fit:cover;height:220px">
-        <img src="images/moonranger.jpg" alt="MoonRanger" style="width:100%;border-radius:10px;object-fit:cover;height:220px">
-        <img src="images/naomi_jpl.jpg" alt="Woman at JPL" style="width:100%;border-radius:10px;object-fit:cover;height:220px">
-        <img src="images/naomi_spacex.jpg" alt="Woman at SpaceX" style="width:100%;border-radius:10px;object-fit:cover;height:220px">
-      </div>
-      <img src="images/starlink.jpg" alt="SpaceX Starlink" style="width:100%;border-radius:10px;object-fit:cover;height:180px">
-    </div>
-  </div>
-</section>
-
-<!-- ══════ EXPERIENCE ══════ -->
-<div class="sec-dark" id="experience">
-  <div class="sec-inner">
-    <span class="sec-tag red reveal">Experience</span>
-    <h2 class="sec-title reveal reveal-d1" style="color:var(--text-on-dark)">Where I've worked.</h2>
-    <p class="sec-sub reveal reveal-d1">From lunar rovers to Starship, contributing to systems that push the boundaries of engineering.</p>
-    <div class="exp-grid">
-      <div class="exp-card reveal"><div class="year">Jan 2024 – Present</div><h3>CMU Robomechanics Lab</h3><div class="role">PhD Researcher — 
-        Bipedal Locomotion &amp; Scaling</div><p>Leading research on hip-actuated bipedal walkers and 
-          allometric scaling laws. Created digital twins in Drake and MuJoCo. Designed a penguin-inspired 
-          bipedal robot from CAD to hardware with open-loop and PPO-based control. Mentoring multiple undergraduate 
-          and graduate students. Leading STEM outreach events throughout Pittsburgh, PA, USA.</p></div>
-      
-      <!-- <div class="exp-card reveal reveal-d1"><div class="year">Jan 2024 – Present</div><h3>CMU Robomechanics Lab</h3><div class="role">PhD Researcher — Evolutionary Morpho-Locomotion Co-Design</div>
-      <p>Developing a non-Lamarckian evolutionary framework for co-evolving legged robot morphology 
-        and CPG-based control. Each robot's genotype encodes both body geometry and controller parameters, that evolve over generations.
-        Walkers fine-tune controllers through online RL during their lifetime, but offspring inherit only genotypes. </p></div> -->
-      
-      <div class="exp-card reveal reveal-d1"><div class="year">Jan – May 2025</div><h3>CMU MoonRanger</h3><div class="role">Mechanical 
-        Design Lead</div><p>Temporary mechanical design lead for IRIS, the first rover to autonomously search for subsurface water ice at the 
-          lunar South Pole. Designed and modeled camera shroud to interface with existing rover chassis. Implemented structural interface 
-          redesigns for camera shroud and chassis in SolidWorks, designed and fabricated test fixtures, and performed FEA to verify stiffness and 
-            natural frequency targets for mission environments.</p></div>
-      
-      <div class="exp-card reveal"><div class="year">Summer 2023</div><h3>NASA JPL</h3><div class="role">Graduate Intern — 
-        Mars Sample Return</div><p>Organized 13 qualification experiments for a mission-critical harness on the Spacecraft 
-          Mechanical Engineering team. Designed fixturing in Siemens NX, facilitated supplier meetings, and conducted 
-          tolerance stack-up analysis.</p></div>
-      
-      <div class="exp-card reveal reveal-d1"><div class="year">Summer 2022</div><h3>SpaceX — Starlink</h3><div class="role">Harness 
-        Design Engineer Intern</div><p>Redesigned flight power and data harnesses for next-gen satellites in Siemens NX. Mapped 
-          signaling, calculated power losses and thermal derating, tested harness flexibility in cold temperatures, and 
-          reduced harness costs by over $2 million.</p></div>
-      
-      <div class="exp-card reveal"><div class="year">Summer 2021</div><h3>SpaceX — Starship</h3><div class="role">Integration 
-        Engineering Intern</div><p>Created conops for aft flap installation on S20+ vehicles. Designed planning for hydraulics 
-          and propulsion system installation. Developed a pneumatics vibrator prototype for FOD removal during hydraulics flush. 
-          Designed laser-cut parts in Siemens NX.</p></div>
-      
-      <div class="exp-card reveal reveal-d1"><div class="year">September 2022 - May 2023 </div><h3>Princeton BAMLab</h3><div class="role">
-        Undergraduate Researcher</div><p>Studied the kinematics and g
-          eometrical parameters of the flying fish pectoral fin actuation system. 
-          Applied insights to modular flying fish robot.</p></div>
-      <div class="exp-card reveal reveal-d1"><div class="year">July 2020 - Jan 2021</div><h3>Princeton IRoM Lab</h3><div class="role">
-        Undergraduate Researcher</div><p>Simulated trash-collecting Jackal robot with ROS &amp; iGibson.</p></div>
-      
-      <div class="exp-card reveal reveal-d1"><div class="year">2018</div><h3>NASA JSC</h3><div class="role">SEES Intern/Mars Mission 
-        Planner</div><p>Designed crewed Mars mission for 7–14 astronauts — habitat, water recycling, cost analysis. Presented at 
-          Johnson Space Center.</p></div>
-    </div>
-  </div>
-</div>
-
-<!-- ══════ PUBLICATIONS ══════ -->
-<section class="sec" id="publications">
-  <span class="sec-tag yellow reveal">Publications &amp; Presentations</span>
-  <h2 class="sec-title reveal reveal-d1">Research output.</h2>
-  <ul class="pub-list reveal reveal-d2">
-    <li class="pub-item">
-      <div class="pub-dot"></div><div class="pub-body"><span class="pub-type">Under Review · 2026</span>
-      <h4>Allometric Scaling Laws for Bipedal Robots</h4>
-      <p class="authors"><strong>Naomi Oke</strong>, Aja M. Carter, Ben Gu, Steven Man, Cordelia Pride, Sarah Bergbreiter, Aaron M. Johnson</p>
-      <p class="venue">In prep. · arXiv:2603.22560</p></div>
-    </li>
-    
-    <li class="pub-item">
-      <div class="pub-dot"></div><div class="pub-body"><span class="pub-type">Poster · 2026</span>
-      <h4>Embodied Evolutionary Co-Design of Legged Robot Morphology and Gait</h4>
-      <p class="authors"><strong>Naomi Oke</strong> and Aaron M. Johnson</p>
-      <p class="venue">MESH RCN Meeting 2026</p></div>
-    </li>
-    
-    <li class="pub-item">
-      <div class="pub-dot"></div><div class="pub-body"><span class="pub-type">Workshop Abstract &amp; Poster · 2026</span>
-      <h4>A Penguin-Inspired Bipedal Robot for Low-Friction Surface Walking</h4>
-      <p class="authors"><strong>Naomi Oke*</strong>, Ben Gu*, Cordelia Pride, Stacy Ashlyn, and Aaron M. Johnson</p>
-      <p class="venue">Workshop, IEEE ICRA 2026</p></div>
-    </li>
-    
-    <li class="pub-item">
-      <div class="pub-dot"></div><div class="pub-body"><span class="pub-type">Conference Poster · 2026</span>
-      <h4>Allometric Scaling Laws in Bipedal Robot Design</h4>
-      <p class="authors"><strong>Naomi Oke</strong>, Steven Man, Sarah Bergbreiter, and Aaron M. Johnson</p>
-      <p class="venue">Gordon Research Seminar and Conference on Robotics, Ventura, CA, 2026</p></div>
-    </li>
-    
-    <li class="pub-item">
-      <div class="pub-dot"></div><div class="pub-body"><span class="pub-type">Conference Paper · 2025</span>
-      <h4>Zippy: The Smallest Power-Autonomous Bipedal Robot</h4>
-      <p class="authors">Steven Man*, Soma Narita*, Josef Macera*, <strong>Naomi Oke</strong>, Aaron M. Johnson, Sarah Bergbreiter</p>
-      <p class="venue">IEEE International Conference on Robotics and Automation (ICRA), 2025</p></div>
-    </li>
-  </ul>
-</section>
-
-<!-- ══════ AWARDS ══════ -->
-<div class="sec-dark">
-  <div class="sec-inner">
-    <span class="sec-tag yellow reveal">Awards &amp; Honors</span>
-    <h2 class="sec-title reveal reveal-d1" style="color:var(--text-on-dark)">Recognition.</h2>
-    <div class="awards-grid reveal reveal-d2">
-      <div class="award"><div class="yr">2025</div><h4>Milton Shaw Ph.D. Research Award in Robotics</h4><p>Carnegie Mellon University</p></div>
-      <div class="award"><div class="yr">2022</div><h4>GE Women's Network Scholarship</h4><p>General Electric</p></div>
-      <div class="award"><div class="yr">2022</div><h4>SWE Scholarship Recipient</h4><p>Society of Women Engineers</p></div>
-    </div>
-  </div>
-</div>
-
-<!-- ══════ LEADERSHIP & SERVICE ══════ -->
-<section class="sec" id="leadership">
-  <span class="sec-tag red reveal">Leadership &amp; Service</span>
-  <h2 class="sec-title reveal reveal-d1">Community &amp; outreach.</h2>
-  <div class="lead-grid reveal reveal-d2">
-    <div class="lead-card"><span class="tag">Workshop Organizer · IEEE ICRA</span><h4>Unconventional Robots Workshop</h4><p>Co-organized the <a href="https://sites.google.com/andrew.cmu.edu/2nd-unconventional-robots/home" target="_blank">2nd Unconventional Robots</a> workshop at 
-      ICRA 2025 (Atlanta) and the <a href="https://sites.google.com/andrew.cmu.edu/icra26-3rd-unconv-robots/home" target="_blank">3rd edition</a> at ICRA 2026 (Vienna). 
-      The full-day workshop brings together researchers in novel mechanism design, modeling, simulation, and control of non-standard robotic systems.</p></div>
-    
-    <div class="lead-card"><span class="tag">Co-Founder &amp; Officer · Princeton</span><h4>Women of Aeronautics &amp; Astronautics</h4><p>Co-founded 
-      the Princeton chapter of WoAA (2020–2023), creating a community for women in aerospace engineering at Princeton.</p></div>
-    
-    <div class="lead-card"><span class="tag">VP &amp; Alumni Chair · Princeton</span><h4>National Society of Black Engineers</h4><p>Served as 
-      Vice President and Alumni Engagement Chair &amp; Chapter Historian for NSBE Princeton (2020–2022), strengthening alumni networks and 
-      chapter engagement.</p></div>
-    
-    <div class="lead-card"><span class="tag">Co-President · Princeton</span><h4>Princeton African Students Association</h4><p>Rose from 
-      Treasurer to Events Chair to Co-President (2020–2022), organizing cultural events, academic programming, and community building for 
-      African students.</p></div>
-    
-    <div class="lead-card"><span class="tag">Board Member · Princeton</span><h4>Council on Science &amp; Technology</h4><p>Student Advisory 
-      Board Member for Princeton's CST (2020–2021), advising on science education initiatives and interdisciplinary programming.</p></div>
-    
-    <div class="lead-card"><span class="tag">Co-Organizer · Princeton</span><h4>Black Talent Pipeline Initiative</h4><p>Student Co-Organizer 
-      for Princeton BTPI (2020–2021), connecting Black students with career opportunities and alumni mentors.</p></div>
-  </div>
-
-    <h3 style="color:var(--text-mid);font-family:var(--serif);font-size:1.2rem;margin-top:3rem;margin-bottom:1rem" class="reveal">Professional Memberships</h3>
-    <div class="membership-row reveal">
-      <span class="membership-pill">IEEE</span>
-      <span class="membership-pill">ASME</span>
-      <span class="membership-pill">AIAA</span>
-      <span class="membership-pill">SWE</span>
-      <span class="membership-pill">NSBE</span>
-      <span class="membership-pill">WoAA</span>
-      <span class="membership-pill">Sigma Xi</span>
-    </div>
-</section>
-
-  <!-- ══════ COURSEWORK ══════ -->
-<div class="sec-warm" id="coursework">
-  <div class="sec-inner">
-    <span class="sec-tag reveal">Coursework</span>
-    <h2 class="sec-title reveal reveal-d1">What I've studied.</h2>
-    <div class="skills-section reveal reveal-d2">
-      <div>
-        <div class="skill-group">
-          <h4>Robotics &amp; Controls — CMU &amp Princeton</h4>
-          <div class="pills">
-            <span class="pill">Robot Design &amp; Experimentation (24-775 - CMU)</span>
-            <span class="pill">Robot Dynamics &amp; Analysis (24-760 - CMU)</span>
-            <span class="pill">Modern Control Theory (24-677 - CMU)</span>
-            <span class="pill">Space Robotics (16-865 - CMU)</span>
-            <span class="pill">Automatic Control Systems (MAE 433 - Princeton)</span>
-          </div>
+  <!-- ===== HOME ===== -->
+  <section class="page" id="home">
+    <div class="hero">
+      <div class="hero-text">
+        <div class="hi">Hi, I'm Naomi.</div>
+        <div class="role">Roboticist and mechanical engineer.</div>
+        <p>I'm a Ph.D. candidate in Mechanical Engineering at Carnegie Mellon, working in the
+          <a href="https://www.cmu.edu/me/robomechanicslab/" target="_blank" rel="noopener">Robomechanics Lab</a>.
+          My research is on legged locomotion and how the dynamics of walking robots change with size.</p>
+        <div class="accent-rule"></div>
+        <div class="hero-tags">
+          <span class="tag">Carnegie Mellon</span>
+          <span class="tag">Robomechanics Lab</span>
+          <span class="tag">Legged locomotion</span>
         </div>
-        <div class="skill-group">
-          <h4>AI &amp; Machine Learning — CMU</h4>
-          <div class="pills">
-            <span class="pill">AI &amp; Machine Learning for Engineers (24-787)</span>
-            <span class="pill">Introduction to Deep Learning (24-788)</span>
-            <span class="pill">Intermediate Deep Learning (24-789)</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <h4>Professional Development — CMU &amp Princeton </h4>
-          <div class="pills">
-            <span class="pill">Engineering a Startup (24-692 - CMU)</span>
-            <span class="pill">Project Management (24-691 - CMU)</span>
-            <span class="pill">Psychology for Engineering, Energy, &amp Environmental Decisions (ENE/PSY 475 - Princeton)</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <h4>Aerospace — Princeton</h4>
-          <div class="pills">
-            <span class="pill">Fluid Dynamics (MAE 335)</span>
-            <span class="pill">Space Flight: Orbital Mechanics (MAE 341)</span>
-            <span class="pill">Space System Design (MAE 342)</span>
-            <span class="pill">Rocket &amp; Air-Breathing Propulsion (MAE 426)</span>
-            <span class="pill">Bioinspired Design (MAE 416)</span>
-          </div>
+        <div class="hero-cta">
+          <a class="btn primary" href="#about">About me</a>
+          <a class="btn" href="#publications">Publications</a>
         </div>
       </div>
       <div>
-        <div class="skill-group">
-          <h4>Mechanical &amp; Structural — Princeton</h4>
-          <div class="pills">
-            <span class="pill">Thermodynamics (MAE 221)</span>
-            <span class="pill">Modern Solid Mechanics (MAE 223)</span>
-            <span class="pill">Introduction to Engineering Dynamics (MAE 206)</span>
-            <span class="pill">Mechanics of Fluids (MAE 222)</span>
-            <span class="pill">Structure &amp; Properties of Materials (MAE 324)</span>
-            <span class="pill">Statics of Structures (CEE 312)</span>
-            <span class="pill">Engineering Design (MAE 321)</span>
-            <span class="pill">Integrated Engineering Science Lab (MAE 224)</span>
-          </div>
+        <figure class="frame portrait">
+          <img src="images/naomi-hero.jpg" alt="Portrait of Naomi Oke" data-label="Portrait" onerror="imgFail(this)">
+        </figure>
+        <div class="cap">Photo by Chad Isaiah Studios</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="page" id="about">
+    <div class="page-head">
+      <span class="eyebrow">About</span>
+      <h1 class="title">About me</h1>
+    </div>
+    <div class="about">
+      <div>
+        <p>I'm a third-year Ph.D. candidate in Mechanical Engineering at Carnegie Mellon University, working in the
+          <a href="https://www.cmu.edu/me/robomechanicslab/" target="_blank" rel="noopener">Robomechanics Lab</a>
+          on design optimization, legged locomotion, and bipedal dynamics across length scales. My work includes
+          hip-actuated walkers, penguin-inspired bipeds, and allometric scaling laws for robotic locomotion.</p>
+        <p>I earned my B.S.E. from Princeton University in Mechanical and Aerospace Engineering, with a certificate
+          in Robotics and Intelligent Systems. Since then I have designed flight hardware at SpaceX, organized
+          qualification testing for NASA's Mars Sample Return mission at JPL, and served as a temporary mechanical
+          design lead for a lunar rover.</p>
+        <p>Away from the lab, I enjoy creative writing, hand-drawn 2D animation, learning languages, hiking, and
+          photography.</p>
+
+        <h2 class="sec-title r">Education</h2>
+        <div class="stack">
+          <div class="card"><span class="when">2024 to present</span><h3>Ph.D., Mechanical Engineering</h3>
+            <div class="role-line">Carnegie Mellon University, Robomechanics Lab</div>
+            <p>Design optimization, legged locomotion, and bipedal dynamics across length scales.</p></div>
+          <div class="card"><span class="when">Class of 2023</span><h3>B.S.E., Mechanical and Aerospace Engineering</h3>
+            <div class="role-line">Princeton University</div>
+            <p>Certificate in Robotics and Intelligent Systems. Research in the IRoM Lab and BAMLab.</p></div>
         </div>
-        <div class="skill-group">
-          <h4>Math, Physics &amp; CS — Princeton</h4>
-          <div class="pills">
-            <span class="pill">Multivariable Calculus (MAT 201)</span>
-            <span class="pill">Linear Algebra (MAT 202)</span>
-            <span class="pill">Differential Equations (MAE 305)</span>
-            <span class="pill">Fundamentals of Statistics (ORF 245)</span>
-            <span class="pill">General Physics I &amp; II</span>
-            <span class="pill">General Chemistry I</span>
-            <span class="pill">Computer Science: Interdisciplinary (COS 126)</span>
-            <span class="pill">Astronomy: The Universe (AST 203)</span>
-          </div>
+
+        <h2 class="sec-title y">Research interests</h2>
+        <div class="tags">
+          <span class="tag">Legged locomotion</span>
+          <span class="tag">Allometric scaling</span>
+          <span class="tag">Hip-actuated walkers</span>
+          <span class="tag">Bio-inspired design</span>
+          <span class="tag">Design optimization</span>
+          <span class="tag">Simulation</span>
+          <span class="tag">Reinforcement learning</span>
         </div>
-        <div class="skill-group">
-          <h4>Humanities &amp; Arts — Princeton</h4>
-          <div class="pills">
-            <span class="pill">Digital Animation (VIS 220)</span>
-            <span class="pill">Film &amp; Media Studies: Animation (ENG 259)</span>
-            <span class="pill">Creative Writing: Fiction (CWR 204)</span>
-            <span class="pill">Creative Writing: Poetry (CWR 202)</span>
-            <span class="pill">Fundamentals of Neuroscience (NEU 201)</span>
-            <span class="pill">American Sign Language (LIN 205)</span>
-          </div>
+      </div>
+      <div>
+        <figure class="frame portrait">
+          <img src="images/naomi_grad2.png" alt="Naomi Oke in graduation attire" data-label="Graduation" onerror="imgFail(this)">
+        </figure>
+        <div class="gallery">
+          <figure class="frame square"><img src="images/moonranger.jpg" alt="MoonRanger rover" data-label="MoonRanger" onerror="imgFail(this)"></figure>
+          <figure class="frame square"><img src="images/naomi_jpl.jpg" alt="Naomi at NASA JPL" data-label="NASA JPL" onerror="imgFail(this)"></figure>
+          <figure class="frame square"><img src="images/naomi_spacex.jpg" alt="Naomi at SpaceX" data-label="SpaceX" onerror="imgFail(this)"></figure>
         </div>
       </div>
     </div>
-  </div>
-</div>
-  
-<!-- ══════ MENTORING ══════ -->
-<div class="sec-dark">
-  <div class="sec-inner">
-    <span class="sec-tag green reveal">Mentoring</span>
-    <h2 class="sec-title reveal reveal-d1" style="color:var(--text-on-dark)">Students I've mentored.</h2>
-    <div class="mentee-row reveal reveal-d2">
-      <div class="mentee"><h4>Bennett Matthews</h4><span>B.S. MechE, CMU · 2026–Present</span></div>
-      <div class="mentee"><h4>Nicholas Chung</h4><span>B.S. MechE, CMU · 2026–Present</span></div>
-      <div class="mentee"><h4>Serge Douge</h4><span>B.S. MechE, CMU · 2025–Present</span></div>
-      <div class="mentee"><h4>Chris Keefe</h4><span>B.S. MechE, CMU · 2025–2026</span></div>
-      <div class="mentee"><h4>Ricky Castro</h4><span>B.S. MechE, CMU · 2025–Present</span></div>
-      <div class="mentee"><h4>Hopewell Feldmann</h4><span>B.S. MechE, CMU · 2025–2025</span></div>
-      <div class="mentee"><h4>Nicole Ortuno</h4><span>B.S. MechE, CMU · 2025–Present</span></div>
-      <div class="mentee"><h4>Cordelia Pride</h4><span>B.S. MechE, CMU · 2024–Present</span></div>
-      <div class="mentee"><h4>Ben Gu</h4><span>M.S. RI, CMU · 2024–Present</span></div>
-      <div class="mentee"><h4>Serge Douge</h4><span>B.S. MechE, CMU · 2025–Present</span></div>
-      <div class="mentee"><h4>James Shin</h4><span>B.S. MechE, CMU · 2025–Present</span></div>
-      <div class="mentee"><h4>Catherine Or</h4><span>B.S. MechE, CMU · 2024–2025</span></div>
-      <div class="mentee"><h4>Kendall Hart</h4><span>B.S. MechE, CMU · 2024–2025</span></div>
+  </section>
+
+  <!-- ===== EXPERIENCE ===== -->
+  <section class="page" id="experience">
+    <div class="page-head">
+      <span class="eyebrow">Experience</span>
+      <h1 class="title">Experience</h1>
+      <p class="lede">Selected research and industry roles.</p>
     </div>
-  </div>
-</div>
+    <div class="cards">
+      <div class="card"><span class="when">Jan 2024 to present</span><h3>CMU Robomechanics Lab</h3>
+        <div class="role-line">Ph.D. Researcher, Bipedal Locomotion and Scaling</div>
+        <p>Leading research on hip-actuated bipedal walkers and allometric scaling laws. Built digital twins in Drake
+          and MuJoCo, designed a penguin-inspired bipedal robot from CAD to hardware with open-loop and PPO-based
+          control, and mentor students while running STEM outreach across Pittsburgh.</p></div>
+      <div class="card"><span class="when">Jan to May 2025</span><h3>CMU MoonRanger</h3>
+        <div class="role-line">Mechanical Design Lead</div>
+        <p>Temporary mechanical design lead for IRIS, the first rover to autonomously search for subsurface water ice
+          at the lunar South Pole. Designed a camera shroud to interface with the rover chassis in SolidWorks,
+          fabricated test fixtures, and ran FEA to verify stiffness and natural-frequency targets.</p></div>
+      <div class="card"><span class="when">Summer 2023</span><h3>NASA JPL</h3>
+        <div class="role-line">Graduate Intern, Mars Sample Return</div>
+        <p>Organized 13 qualification experiments for a mission-critical harness on the Spacecraft Mechanical
+          Engineering team. Designed fixturing in Siemens NX, facilitated supplier meetings, and conducted tolerance
+          stack-up analysis.</p></div>
+      <div class="card"><span class="when">Summer 2022</span><h3>SpaceX Starlink</h3>
+        <div class="role-line">Harness Design Engineer Intern</div>
+        <p>Redesigned flight power and data harnesses for next-generation satellites in Siemens NX. Mapped signaling,
+          calculated power losses and thermal derating, tested cold-temperature flexibility, and reduced harness
+          costs by over $2 million.</p></div>
+      <div class="card"><span class="when">Summer 2021</span><h3>SpaceX Starship</h3>
+        <div class="role-line">Integration Engineering Intern</div>
+        <p>Created conops for aft flap installation on S20+ vehicles, planned hydraulics and propulsion installation,
+          developed a pneumatic vibrator prototype for FOD removal, and designed laser-cut parts in Siemens NX.</p></div>
+      <div class="card"><span class="when">Sep 2022 to May 2023</span><h3>Princeton BAMLab</h3>
+        <div class="role-line">Undergraduate Researcher</div>
+        <p>Studied the kinematics of the flying-fish pectoral fin actuation system and applied the insights to a
+          modular flying-fish robot.</p></div>
+      <div class="card"><span class="when">Jul 2020 to Jan 2021</span><h3>Princeton IRoM Lab</h3>
+        <div class="role-line">Undergraduate Researcher</div>
+        <p>Simulated a trash-collecting Jackal robot with ROS and iGibson.</p></div>
+      <div class="card"><span class="when">2018</span><h3>NASA Johnson Space Center</h3>
+        <div class="role-line">SEES Intern, Mars Mission Planner</div>
+        <p>Designed a crewed Mars mission for 7 to 14 astronauts, covering habitat, water recycling, and cost
+          analysis, and presented the work at Johnson Space Center.</p></div>
+    </div>
 
-<!-- ══════ CONTACT ══════ -->
-<section class="sec" id="contact" style="text-align:center">
-  <span class="sec-tag blue reveal">Contact</span>
-  <h2 class="sec-title reveal reveal-d1">Let's connect.</h2>
-  <p class="sec-sub reveal reveal-d1" style="margin-left:auto;margin-right:auto">Open to conversations about robotics, space, research, or collaboration.</p>
-  <div class="contact-row reveal reveal-d2" style="justify-content:center">
-    <a href="mailto:noke@andrew.cmu.edu" class="contact-chip">✉ noke@andrew.cmu.edu</a>
-    <!-- <a href="/cdn-cgi/l/email-protection#a0cecfcbc5e0c1cec4d2c5d78ec3cdd58ec5c4d5" class="contact-chip">✉ <span class="__cf_email__" data-cfemail="87e9e8ece2c7e6e9e3f5e2f0a9e4eaf2a9e2e3f2">[email&#160;protected]</span></a> -->
-    <a href="https://www.linkedin.com/in/naomi-oke-url/" target="_blank" class="contact-chip">LinkedIn</a>
-    <a href="https://scholar.google.com/citations?user=989CEk8AAAAJ&hl=en&oi=ao" target="_blank" class="contact-chip">Google Scholar</a>
-    <a href="https://twitter.com/oke_naomi" target="_blank" class="contact-chip">Twitter/X</a>
-    <a href="https://www.instagram.com/naomio_creates" target="_blank" class="contact-chip">@naomio_creates</a>
-  </div>
-</section>
+    <h2 class="sec-title y">Awards</h2>
+    <div class="stack">
+      <div class="card award"><div class="yr">2025</div><div><h3>Milton Shaw Ph.D. Research Award in Robotics</h3><p>Carnegie Mellon University</p></div></div>
+      <div class="card award"><div class="yr">2022</div><div><h3>GE Women's Network Scholarship</h3><p>General Electric</p></div></div>
+      <div class="card award"><div class="yr">2022</div><div><h3>SWE Scholarship Recipient</h3><p>Society of Women Engineers</p></div></div>
+    </div>
+  </section>
 
-<footer><p>&copy; 2025 Naomi Oke</p></footer>
+  <!-- ===== PUBLICATIONS ===== -->
+  <section class="page" id="publications">
+    <div class="page-head">
+      <span class="eyebrow">Publications</span>
+      <h1 class="title">Publications</h1>
+      <p class="lede">Selected publications and presentations. An asterisk (*) marks equal contribution.</p>
+    </div>
+    <div class="cards">
+      <div class="card pub"><span class="ptype">Under review, 2026</span>
+        <h3>Allometric Scaling Laws for Bipedal Robots</h3>
+        <p class="authors"><strong>Naomi Oke</strong>, Aja M. Carter, Ben Gu, Steven Man, Cordelia Pride, Sarah Bergbreiter, Aaron M. Johnson</p>
+        <p class="venue">In preparation. arXiv:2603.22560</p></div>
+      <div class="card pub"><span class="ptype">Poster, 2026</span>
+        <h3>Embodied Evolutionary Co-Design of Legged Robot Morphology and Gait</h3>
+        <p class="authors"><strong>Naomi Oke</strong> and Aaron M. Johnson</p>
+        <p class="venue">MESH RCN Meeting 2026</p></div>
+      <div class="card pub"><span class="ptype">Workshop abstract and poster, 2026</span>
+        <h3>A Penguin-Inspired Bipedal Robot for Low-Friction Surface Walking</h3>
+        <p class="authors"><strong>Naomi Oke*</strong>, Ben Gu*, Cordelia Pride, Stacy Ashlyn, and Aaron M. Johnson</p>
+        <p class="venue">Workshop, IEEE ICRA 2026</p></div>
+      <div class="card pub"><span class="ptype">Conference poster, 2026</span>
+        <h3>Allometric Scaling Laws in Bipedal Robot Design</h3>
+        <p class="authors"><strong>Naomi Oke</strong>, Steven Man, Sarah Bergbreiter, and Aaron M. Johnson</p>
+        <p class="venue">Gordon Research Seminar and Conference on Robotics, Ventura, CA, 2026</p></div>
+      <div class="card pub"><span class="ptype">Conference paper, 2025</span>
+        <h3>Zippy: The Smallest Power-Autonomous Bipedal Robot</h3>
+        <p class="authors">Steven Man*, Soma Narita*, Josef Macera*, <strong>Naomi Oke</strong>, Aaron M. Johnson, Sarah Bergbreiter</p>
+        <p class="venue">IEEE International Conference on Robotics and Automation (ICRA), 2025</p></div>
+    </div>
+  </section>
+
+  <!-- ===== COURSEWORK ===== -->
+  <section class="page" id="coursework">
+    <div class="page-head">
+      <span class="eyebrow">Coursework</span>
+      <h1 class="title">Coursework</h1>
+      <p class="lede">Graduate coursework at Carnegie Mellon and undergraduate coursework at Princeton.</p>
+    </div>
+    <div class="cw">
+      <div class="card"><h3>Robotics and Controls</h3><ul>
+        <li>Robot Design and Experimentation <span class="code">24-775, CMU</span></li>
+        <li>Robot Dynamics and Analysis <span class="code">24-760, CMU</span></li>
+        <li>Modern Control Theory <span class="code">24-677, CMU</span></li>
+        <li>Space Robotics <span class="code">16-865, CMU</span></li>
+        <li>Automatic Control Systems <span class="code">MAE 433, Princeton</span></li>
+      </ul></div>
+      <div class="card"><h3>AI and Machine Learning</h3><ul>
+        <li>AI and Machine Learning for Engineers <span class="code">24-787, CMU</span></li>
+        <li>Introduction to Deep Learning <span class="code">24-788, CMU</span></li>
+        <li>Intermediate Deep Learning <span class="code">24-789, CMU</span></li>
+      </ul></div>
+      <div class="card"><h3>Mechanical and Structural</h3><ul>
+        <li>Thermodynamics <span class="code">MAE 221, Princeton</span></li>
+        <li>Modern Solid Mechanics <span class="code">MAE 223, Princeton</span></li>
+        <li>Engineering Dynamics <span class="code">MAE 206, Princeton</span></li>
+        <li>Mechanics of Fluids <span class="code">MAE 222, Princeton</span></li>
+        <li>Structure and Properties of Materials <span class="code">MAE 324, Princeton</span></li>
+        <li>Statics of Structures <span class="code">CEE 312, Princeton</span></li>
+        <li>Engineering Design <span class="code">MAE 321, Princeton</span></li>
+      </ul></div>
+      <div class="card"><h3>Aerospace</h3><ul>
+        <li>Fluid Dynamics <span class="code">MAE 335, Princeton</span></li>
+        <li>Space Flight: Orbital Mechanics <span class="code">MAE 341, Princeton</span></li>
+        <li>Space System Design <span class="code">MAE 342, Princeton</span></li>
+        <li>Rocket and Air-Breathing Propulsion <span class="code">MAE 426, Princeton</span></li>
+        <li>Bioinspired Design <span class="code">MAE 416, Princeton</span></li>
+      </ul></div>
+      <div class="card"><h3>Math, Physics and CS</h3><ul>
+        <li>Multivariable Calculus <span class="code">MAT 201, Princeton</span></li>
+        <li>Linear Algebra <span class="code">MAT 202, Princeton</span></li>
+        <li>Differential Equations <span class="code">MAE 305, Princeton</span></li>
+        <li>Fundamentals of Statistics <span class="code">ORF 245, Princeton</span></li>
+        <li>Computer Science (Interdisciplinary) <span class="code">COS 126, Princeton</span></li>
+        <li>Astronomy: The Universe <span class="code">AST 203, Princeton</span></li>
+      </ul></div>
+      <div class="card"><h3>Humanities and Arts</h3><ul>
+        <li>Digital Animation <span class="code">VIS 220, Princeton</span></li>
+        <li>Film and Media: Animation <span class="code">ENG 259, Princeton</span></li>
+        <li>Creative Writing: Fiction <span class="code">CWR 204, Princeton</span></li>
+        <li>Creative Writing: Poetry <span class="code">CWR 202, Princeton</span></li>
+        <li>Fundamentals of Neuroscience <span class="code">NEU 201, Princeton</span></li>
+        <li>American Sign Language <span class="code">LIN 205, Princeton</span></li>
+      </ul></div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICE ===== -->
+  <section class="page" id="service">
+    <div class="page-head">
+      <span class="eyebrow">Service and mentoring</span>
+      <h1 class="title">Community and outreach</h1>
+      <p class="lede">Workshops I organize, student groups I have served, and students I mentor.</p>
+    </div>
+
+    <h2 class="sec-title">Leadership and service</h2>
+    <div class="cards two">
+      <div class="card"><span class="when">Workshop Organizer, IEEE ICRA</span><h3>Unconventional Robots Workshop</h3>
+        <p>Co-organized the <a href="https://sites.google.com/andrew.cmu.edu/2nd-unconventional-robots/home" target="_blank" rel="noopener">2nd</a>
+          (ICRA 2025, Atlanta) and <a href="https://sites.google.com/andrew.cmu.edu/icra26-3rd-unconv-robots/home" target="_blank" rel="noopener">3rd</a>
+          (ICRA 2026, Vienna) editions. The full-day workshop covers novel mechanism design, modeling, simulation, and control.</p></div>
+      <div class="card"><span class="when">Co-Founder, Princeton</span><h3>Women of Aeronautics and Astronautics</h3>
+        <p>Co-founded the Princeton chapter of WoAA (2020 to 2023), building a community for women in aerospace.</p></div>
+      <div class="card"><span class="when">VP and Alumni Chair, Princeton</span><h3>National Society of Black Engineers</h3>
+        <p>Vice President, Alumni Engagement Chair, and Chapter Historian for NSBE Princeton (2020 to 2022).</p></div>
+      <div class="card"><span class="when">Co-President, Princeton</span><h3>African Students Association</h3>
+        <p>Rose from Treasurer to Events Chair to Co-President (2020 to 2022), organizing cultural and academic programming.</p></div>
+      <div class="card"><span class="when">Board Member, Princeton</span><h3>Council on Science and Technology</h3>
+        <p>Student Advisory Board Member (2020 to 2021), advising on science education and interdisciplinary programming.</p></div>
+      <div class="card"><span class="when">Co-Organizer, Princeton</span><h3>Black Talent Pipeline Initiative</h3>
+        <p>Connected Black students with career opportunities and alumni mentors (2020 to 2021).</p></div>
+    </div>
+
+    <h2 class="sec-title r">Students I have mentored</h2>
+    <div class="mentees">
+      <div class="mentee"><h3>Bennett Matthews</h3><span>B.S. MechE, CMU, 2026 to present</span></div>
+      <div class="mentee"><h3>Nicholas Chung</h3><span>B.S. MechE, CMU, 2026 to present</span></div>
+      <div class="mentee"><h3>Serge Douge</h3><span>B.S. MechE, CMU, 2025 to present</span></div>
+      <div class="mentee"><h3>Ricky Castro</h3><span>B.S. MechE, CMU, 2025 to present</span></div>
+      <div class="mentee"><h3>Nicole Ortuno</h3><span>B.S. MechE, CMU, 2025 to present</span></div>
+      <div class="mentee"><h3>James Shin</h3><span>B.S. MechE, CMU, 2025 to present</span></div>
+      <div class="mentee"><h3>Chris Keefe</h3><span>B.S. MechE, CMU, 2025 to 2026</span></div>
+      <div class="mentee"><h3>Hopewell Feldmann</h3><span>B.S. MechE, CMU, 2025</span></div>
+      <div class="mentee"><h3>Cordelia Pride</h3><span>B.S. MechE, CMU, 2024 to present</span></div>
+      <div class="mentee"><h3>Ben Gu</h3><span>M.S. RI, CMU, 2024 to present</span></div>
+      <div class="mentee"><h3>Catherine Or</h3><span>B.S. MechE, CMU, 2024 to 2025</span></div>
+      <div class="mentee"><h3>Kendall Hart</h3><span>B.S. MechE, CMU, 2024 to 2025</span></div>
+    </div>
+
+    <h2 class="sec-title y">Professional memberships</h2>
+    <div class="tags">
+      <span class="tag">IEEE</span><span class="tag">ASME</span><span class="tag">AIAA</span>
+      <span class="tag">SWE</span><span class="tag">NSBE</span><span class="tag">WoAA</span><span class="tag">Sigma Xi</span>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="page" id="contact">
+    <div class="page-head">
+      <span class="eyebrow">Contact</span>
+      <h1 class="title">Contact</h1>
+      <p class="lede">I'm happy to talk about robotics research or collaboration. Email is the best way to reach me.</p>
+    </div>
+    <ul class="contact-list">
+      <li><span class="d"></span><span class="k">Email</span><span class="v"><a href="mailto:noke@andrew.cmu.edu">noke@andrew.cmu.edu</a></span></li>
+      <li><span class="d"></span><span class="k">LinkedIn</span><span class="v"><a href="https://www.linkedin.com/in/naomi-oke-url/" target="_blank" rel="noopener">naomi-oke-url</a></span></li>
+      <li><span class="d"></span><span class="k">Google Scholar</span><span class="v"><a href="https://scholar.google.com/citations?user=989CEk8AAAAJ&hl=en&oi=ao" target="_blank" rel="noopener">Scholar profile</a></span></li>
+      <li><span class="d"></span><span class="k">Twitter / X</span><span class="v"><a href="https://twitter.com/oke_naomi" target="_blank" rel="noopener">@oke_naomi</a></span></li>
+      <li><span class="d"></span><span class="k">Instagram</span><span class="v"><a href="https://www.instagram.com/naomio_creates" target="_blank" rel="noopener">@naomio_creates</a></span></li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <span class="foot-brand">Naomi Oke</span>
+    <span class="foot-links">
+      <a href="mailto:noke@andrew.cmu.edu">Email</a>
+      <a href="https://www.linkedin.com/in/naomi-oke-url/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://scholar.google.com/citations?user=989CEk8AAAAJ&hl=en&oi=ao" target="_blank" rel="noopener">Scholar</a>
+      <a href="https://twitter.com/oke_naomi" target="_blank" rel="noopener">Twitter</a>
+    </span>
+    <span class="copyright">© 2025 Naomi Oke</span>
+  </div>
+</footer>
 
 <script>
-window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50)});
-(function(){const c=document.getElementById('starsCanvas'),x=c.getContext('2d');let s=[],w,h;function resize(){w=c.width=c.parentElement.offsetWidth;h=c.height=c.parentElement.offsetHeight;}function init(){resize();s=[];for(let i=0;i<180;i++)s.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.4+.2,a:Math.random()*.4+.1,sp:Math.random()*.006+.001,ph:Math.random()*Math.PI*2});}let f=0;function draw(){x.clearRect(0,0,w,h);f++;for(const p of s){const a=p.a+Math.sin(f*p.sp+p.ph)*.15;x.beginPath();x.arc(p.x,p.y,p.r,0,Math.PI*2);x.fillStyle=`rgba(157,145,103,${Math.max(.03,Math.min(a,.5))})`;x.fill();}requestAnimationFrame(draw);}window.addEventListener('resize',init);init();draw();})();
-const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting){el.target.classList.add('visible');obs.unobserve(el.target);}});},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  var pages=['home','about','experience','publications','coursework','service','contact'];
+  function show(id){
+    if(pages.indexOf(id)===-1)id='home';
+    document.querySelectorAll('.page').forEach(function(p){p.classList.toggle('active',p.id===id);});
+    document.querySelectorAll('.nav-link').forEach(function(a){a.classList.toggle('active',a.dataset.page===id);});
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  window.addEventListener('hashchange',function(){show(location.hash.slice(1));});
+  show(location.hash.slice(1)||'home');
+
+  function imgFail(img){
+    var ph=document.createElement('div');
+    ph.className='ph';
+    ph.textContent=img.getAttribute('data-label')||'Image';
+    img.replaceWith(ph);
+  }
 </script>
 </body>
 </html>

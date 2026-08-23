@@ -64,13 +64,13 @@ nav.nav{display:flex;flex-wrap:wrap;gap:.15rem}
   @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 }
 .page-head{margin-bottom:2.4rem}
-.eyebrow{display:block;font-family:var(--display);font-weight:500;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin-bottom:.7rem}
 h1.title{font-family:var(--display);font-weight:600;font-size:clamp(1.9rem,4.4vw,2.6rem);line-height:1.08;letter-spacing:-.01em}
 .lede{font-size:1.05rem;color:var(--muted);margin-top:.9rem;max-width:60ch}
 
 h2.sec-title{font-family:var(--display);font-weight:600;font-size:1.25rem;margin:2.8rem 0 1.2rem;display:flex;align-items:center;gap:.55rem;letter-spacing:-.005em}
 h2.sec-title::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--blue);flex:none}
 h2.sec-title.r::before{background:var(--red)} h2.sec-title.y::before{background:var(--yellow)}
+h2.sec-title.nodot::before{display:none}
 
 /* ---------- Home ---------- */
 .hero{display:grid;grid-template-columns:1fr 300px;gap:3rem;align-items:center}
@@ -94,17 +94,25 @@ h2.sec-title.r::before{background:var(--red)} h2.sec-title.y::before{background:
 
 /* ---------- Cards ---------- */
 .cards{display:grid;gap:.9rem}
-.cards.two{grid-template-columns:1fr 1fr}
+.rolecards,.publist{display:grid;gap:.9rem}
 .card{background:#fff;border:1px solid var(--line);border-left:3px solid var(--c,var(--line));border-radius:var(--r);padding:1.1rem 1.3rem;transition:box-shadow .16s,transform .16s}
 .card:hover{box-shadow:0 8px 24px rgba(30,30,60,.07);transform:translateY(-1px)}
-.cards .card:nth-child(3n+1),.stack .card:nth-child(3n+1){--c:var(--blue)}
-.cards .card:nth-child(3n+2),.stack .card:nth-child(3n+2){--c:var(--red)}
-.cards .card:nth-child(3n+3),.stack .card:nth-child(3n+3){--c:var(--yellow)}
+.stack .card:nth-child(3n+1){--c:var(--blue)}
+.stack .card:nth-child(3n+2){--c:var(--red)}
+.stack .card:nth-child(3n+3){--c:var(--yellow)}
 .card .when{font-family:var(--display);font-weight:500;font-size:.74rem;color:var(--faint);display:block;margin-bottom:.35rem;letter-spacing:.02em}
 .card h3{font-family:var(--display);font-weight:600;font-size:1.08rem;line-height:1.28}
 .card .role-line{font-size:.9rem;color:var(--muted);font-weight:500;margin-top:.1rem}
 .card p{font-size:.9rem;color:var(--muted);margin-top:.5rem}
 .stack{display:grid;gap:.9rem}
+
+/* accent colors by category */
+.role-industry{--c:var(--blue)}
+.role-research{--c:var(--red)}
+.role-teach{--c:var(--yellow)}
+.rev{--c:var(--yellow)}
+.conf{--c:var(--blue)}
+.pubd{--c:var(--red)}
 
 /* publications */
 .pub .ptype{font-family:var(--display);font-weight:500;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--c);display:block;margin-bottom:.4rem}
@@ -112,26 +120,30 @@ h2.sec-title.r::before{background:var(--red)} h2.sec-title.y::before{background:
 .pub .authors{font-size:.88rem;color:var(--ink)}
 .pub .venue{font-size:.82rem;color:var(--faint);margin-top:.15rem}
 
-/* awards */
+/* awards (no left accent bar, neutral year) */
 .award{display:grid;grid-template-columns:auto 1fr;gap:0 1rem;align-items:baseline}
 .award .yr{font-family:var(--display);font-weight:600;font-size:1.25rem;color:var(--c)}
 .award h3{font-size:1.02rem}.award p{margin-top:.1rem}
+.stack.awards .card{border-left:1px solid var(--line)}
+.stack.awards .yr{color:var(--ink)}
 
-/* mentees */
+/* mentees (no color bar) */
 .mentees{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem}
-.mentee{border:1px solid var(--line);border-top:2px solid var(--c);border-radius:var(--r-sm);padding:.7rem .9rem}
-.mentees .mentee:nth-child(3n+1){--c:var(--blue)}
-.mentees .mentee:nth-child(3n+2){--c:var(--red)}
-.mentees .mentee:nth-child(3n+3){--c:var(--yellow)}
+.mentee{border:1px solid var(--line);border-radius:var(--r-sm);padding:.7rem .9rem}
 .mentee h3{font-family:var(--display);font-weight:500;font-size:.95rem;line-height:1.2}
 .mentee span{font-size:.74rem;color:var(--faint)}
 
-/* tags */
+/* service cards (no color bar) */
+.svc-cards{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+.svc-cards .card{border-left:1px solid var(--line)}
+
+/* plain lists (research interests, memberships) */
+ul.list{list-style:disc;padding-left:1.15rem;margin-top:.5rem;color:var(--muted);display:grid;gap:.25rem;max-width:62ch}
+ul.list li{font-size:.95rem}
+
+/* tags (kept for optional use) */
 .tags{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.3rem}
 .tag{font-family:var(--display);font-weight:500;font-size:.82rem;padding:.28rem .75rem;border-radius:var(--pill);border:1px solid var(--c,var(--line));color:var(--c-ink,var(--muted));background:var(--white)}
-.tags .tag:nth-child(3n+1){--c:var(--blue);--c-ink:var(--blue-ink)}
-.tags .tag:nth-child(3n+2){--c:var(--red);--c-ink:var(--red-ink)}
-.tags .tag:nth-child(3n+3){--c:var(--yellow);--c-ink:var(--yellow-ink)}
 
 /* coursework */
 .cw{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
@@ -159,18 +171,17 @@ h2.sec-title.r::before{background:var(--red)} h2.sec-title.y::before{background:
 
 /* ---------- Footer ---------- */
 .site-footer{border-top:1px solid var(--line);margin-top:3rem;padding:2.2rem 0}
-.site-footer .inner{max-width:var(--wrap);margin:0 auto;padding:0 1.6rem;display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between}
-.foot-brand{font-family:var(--display);font-weight:600}
-.foot-links{display:flex;flex-wrap:wrap;gap:1.1rem}
+.site-footer .inner{max-width:var(--wrap);margin:0 auto;padding:0 1.6rem;display:flex;flex-direction:column;align-items:center;gap:.7rem;text-align:center}
+.foot-links{display:flex;flex-wrap:wrap;gap:1.1rem;justify-content:center}
 .foot-links a{font-size:.82rem;color:var(--muted);font-weight:500}
 .foot-links a:hover{color:var(--ink)}
-.copyright{font-size:.76rem;color:var(--faint);width:100%;text-align:center;margin-top:.4rem}
+.copyright{font-size:.76rem;color:var(--faint)}
 
 /* ---------- Responsive ---------- */
 @media(max-width:800px){
   .hero{grid-template-columns:1fr}.hero .frame{max-width:260px}
   .about{grid-template-columns:1fr}.about .frame{max-width:240px}
-  .cards.two,.cw{grid-template-columns:1fr}
+  .cw,.svc-cards{grid-template-columns:1fr}
   .mentees{grid-template-columns:1fr 1fr}
 }
 @media(max-width:460px){
@@ -208,17 +219,10 @@ h2.sec-title.r::before{background:var(--red)} h2.sec-title.y::before{background:
         <p>I'm a Ph.D. candidate in Mechanical Engineering at Carnegie Mellon University (CMU), working in the
           <a href="https://www.cmu.edu/me/robomechanicslab/" target="_blank" rel="noopener">Robomechanics Lab</a>.
           I'm in my third year. My work includes legged robot design optimization, co-design, bio-inspired robotics,
-           robot mobility, legged robotics for space environments, and legged robot dynamics across length scales. 
-           I earned my M.S. during my time at CMU. I earned my B.S.E. from Princeton University in Mechanical & 
-           Aerospace Engineering with a certificate in Robotics & Intelligent Systems. I enjoy creative writing, 
-           hand-drawn 2D animation, learning new 
-           languages, hiking, and photography.</p>
-        <!-- <div class="accent-rule"></div>
-        <div class="hero-tags">
-          <span class="tag">Carnegie Mellon</span>
-          <span class="tag">Robomechanics Lab</span>
-          <span class="tag">Legged locomotion</span>
-        </div> -->
+           robot mobility, legged robotics for space environments, and legged robot dynamics across length scales.
+           I earned my M.S. during my time at CMU. I earned my B.S.E. from Princeton University in Mechanical &amp;
+           Aerospace Engineering with a certificate in Robotics &amp; Intelligent Systems. I enjoy creative writing,
+           hand-drawn 2D animation, learning new languages, hiking, and photography.</p>
         <div class="hero-cta">
           <a class="btn primary" href="#about">About me</a>
           <a class="btn" href="#publications">Publications</a>
@@ -236,7 +240,6 @@ h2.sec-title.r::before{background:var(--red)} h2.sec-title.y::before{background:
   <!-- ===== ABOUT ===== -->
   <section class="page" id="about">
     <div class="page-head">
-      <span class="eyebrow">About</span>
       <h1 class="title">About me</h1>
     </div>
     <div class="about">
@@ -244,7 +247,7 @@ h2.sec-title.r::before{background:var(--red)} h2.sec-title.y::before{background:
         <p>I'm a third-year Ph.D. candidate in Mechanical Engineering at Carnegie Mellon University, working in the
           <a href="https://www.cmu.edu/me/robomechanicslab/" target="_blank" rel="noopener">Robomechanics Lab</a>
           on design optimization, legged locomotion, and bipedal dynamics across length scales. My work includes
-          bipedal walking, quadrupedal locomotion over compliant terrain, mobility in space environments, and allometric 
+          bipedal walking, quadrupedal locomotion over compliant terrain, mobility in space environments, and allometric
            scaling laws for robotic locomotion.</p>
         <p>I earned my B.S.E. from Princeton University in Mechanical and Aerospace Engineering, with a certificate
           in Robotics and Intelligent Systems. Since then I have designed flight hardware at SpaceX, organized
@@ -253,7 +256,7 @@ h2.sec-title.r::before{background:var(--red)} h2.sec-title.y::before{background:
         <p>Away from the lab, I enjoy creative writing, hand-drawn 2D animation, learning languages, hiking, and
           photography.</p>
 
-        <h2 class="sec-title r">Education</h2>
+        <h2 class="sec-title nodot">Education</h2>
         <div class="stack">
           <div class="card"><span class="when">2024 to present</span><h3>Ph.D., Mechanical Engineering</h3>
             <div class="role-line">Carnegie Mellon University, Robomechanics Lab</div>
@@ -263,16 +266,16 @@ h2.sec-title.r::before{background:var(--red)} h2.sec-title.y::before{background:
             <p>Certificate in Robotics and Intelligent Systems. Research in the IRoM Lab and BAMLab.</p></div>
         </div>
 
-        <h2 class="sec-title y">Research interests</h2>
-        <div class="tags">
-          <span class="tag">Legged locomotion</span>
-          <span class="tag">Allometric scaling</span>
-          <span class="tag">Hip-actuated walkers</span>
-          <span class="tag">Bio-inspired design</span>
-          <span class="tag">Design optimization</span>
-          <span class="tag">Simulation</span>
-          <span class="tag">Reinforcement learning</span>
-        </div>
+        <h2 class="sec-title nodot">Research interests</h2>
+        <ul class="list">
+          <li>Legged locomotion</li>
+          <li>Allometric scaling</li>
+          <li>Hip-actuated walkers</li>
+          <li>Bio-inspired design</li>
+          <li>Design optimization</li>
+          <li>Simulation</li>
+          <li>Reinforcement learning</li>
+        </ul>
       </div>
       <div>
         <figure class="frame portrait">
@@ -290,86 +293,99 @@ h2.sec-title.r::before{background:var(--red)} h2.sec-title.y::before{background:
   <!-- ===== EXPERIENCE ===== -->
   <section class="page" id="experience">
     <div class="page-head">
-      <span class="eyebrow">Experience</span>
       <h1 class="title">Experience</h1>
-      <p class="lede">Selected research and industry roles.</p>
     </div>
-    <div class="cards">
-      <div class="card"><span class="when">Jan 2024 to present</span><h3>CMU Robomechanics Lab</h3>
+
+    <h2 class="sec-title">Selected industry and research roles</h2>
+    <div class="rolecards">
+      <div class="card role-research"><span class="when">Jan 2024 to present</span><h3>CMU Robomechanics Lab</h3>
         <div class="role-line">Ph.D. Researcher, Bipedal Locomotion and Scaling</div>
         <p>Leading research on hip-actuated bipedal walkers and allometric scaling laws. Built digital twins in Drake
           and MuJoCo, designed a penguin-inspired bipedal robot from CAD to hardware with open-loop and PPO-based
           control, and mentor students while running STEM outreach across Pittsburgh.</p></div>
-      <div class="card"><span class="when">Jan to May 2025</span><h3>CMU MoonRanger</h3>
+      <div class="card role-research"><span class="when">Jan to May 2025</span><h3>CMU MoonRanger</h3>
         <div class="role-line">Mechanical Design Lead</div>
-        <p>Temporary mechanical design lead for IRIS, the first rover to autonomously search for subsurface water ice
+        <p>Temporary mechanical design lead for <a href="https://www.ri.cmu.edu/project/moon-ranger/" target="_blank" rel="noopener">MoonRanger</a>, the next step for 
+           <a href="https://www.cmu.edu/news/stories/archives/2024/january/cmus-iris-rover-a-heartbeat-in-space-a-legacy-on-earth" target="_blank" rel="noopener">IRIS</a> 
+           the first rover to autonomously search for subsurface water ice
           at the lunar South Pole. Designed a camera shroud to interface with the rover chassis in SolidWorks,
           fabricated test fixtures, and ran FEA to verify stiffness and natural-frequency targets.</p></div>
-      <div class="card"><span class="when">Summer 2023</span><h3>NASA JPL</h3>
+      <div class="card role-industry"><span class="when">Summer 2023</span><h3>NASA JPL</h3>
         <div class="role-line">Graduate Intern, Mars Sample Return</div>
         <p>Organized 13 qualification experiments for a mission-critical harness on the Spacecraft Mechanical
           Engineering team. Designed fixturing in Siemens NX, facilitated supplier meetings, and conducted tolerance
           stack-up analysis.</p></div>
-      <div class="card"><span class="when">Summer 2022</span><h3>SpaceX Starlink</h3>
+      <div class="card role-industry"><span class="when">Summer 2022</span><h3>SpaceX Starlink</h3>
         <div class="role-line">Harness Design Engineer Intern</div>
         <p>Redesigned flight power and data harnesses for next-generation satellites in Siemens NX. Mapped signaling,
           calculated power losses and thermal derating, tested cold-temperature flexibility, and reduced harness
           costs by over $2 million.</p></div>
-      <div class="card"><span class="when">Summer 2021</span><h3>SpaceX Starship</h3>
+      <div class="card role-industry"><span class="when">Summer 2021</span><h3>SpaceX Starship</h3>
         <div class="role-line">Integration Engineering Intern</div>
         <p>Created conops for aft flap installation on S20+ vehicles, planned hydraulics and propulsion installation,
           developed a pneumatic vibrator prototype for FOD removal, and designed laser-cut parts in Siemens NX.</p></div>
-      <div class="card"><span class="when">Sep 2022 to May 2023</span><h3>Princeton BAMLab</h3>
+      <div class="card role-research"><span class="when">Sep 2022 to May 2023</span><h3>Princeton BAMLab</h3>
         <div class="role-line">Undergraduate Researcher</div>
         <p>Studied the kinematics of the flying-fish pectoral fin actuation system and applied the insights to a
           modular flying-fish robot.</p></div>
-      <div class="card"><span class="when">Jul 2020 to Jan 2021</span><h3>Princeton IRoM Lab</h3>
+      <div class="card role-research"><span class="when">Jul 2020 to Jan 2021</span><h3>Princeton IRoM Lab</h3>
         <div class="role-line">Undergraduate Researcher</div>
         <p>Simulated a trash-collecting Jackal robot with ROS and iGibson.</p></div>
-      <div class="card"><span class="when">2018</span><h3>NASA Johnson Space Center</h3>
+      <div class="card role-industry"><span class="when">2018</span><h3>NASA Johnson Space Center</h3>
         <div class="role-line">SEES Intern, Mars Mission Planner</div>
         <p>Designed a crewed Mars mission for 7 to 14 astronauts, covering habitat, water recycling, and cost
           analysis, and presented the work at Johnson Space Center.</p></div>
     </div>
 
     <h2 class="sec-title y">Awards</h2>
-    <div class="stack">
+    <div class="stack awards">
       <div class="card award"><div class="yr">2025</div><div><h3>Milton Shaw Ph.D. Research Award in Robotics</h3><p>Carnegie Mellon University</p></div></div>
       <div class="card award"><div class="yr">2022</div><div><h3>GE Women's Network Scholarship</h3><p>General Electric</p></div></div>
       <div class="card award"><div class="yr">2022</div><div><h3>SWE Scholarship Recipient</h3><p>Society of Women Engineers</p></div></div>
+    </div>
+
+    <h2 class="sec-title">TAing and Outreach</h2>
+    <div class="rolecards">
+      <div class="card role-teach"><span class="when">Fall 2026</span><h3>Teaching Assistant</h3>
+        <div class="role-line">AI and Machine Learning for Engineers, CMU Mechanical Engineering</div></div>
+      <div class="card role-teach"><span class="when">Spring 2023</span><h3>Tutor</h3>
+        <div class="role-line">Thermodynamics, Princeton University</div></div>
+      <div class="card role-teach"><h3>CMU SWE High School Day</h3>
+        <div class="role-line">Outreach volunteer, Society of Women Engineers</div></div>
+      <div class="card role-teach"><h3>CMU SWE Middle School Day</h3>
+        <div class="role-line">Outreach volunteer, Society of Women Engineers</div></div>
     </div>
   </section>
 
   <!-- ===== PUBLICATIONS ===== -->
   <section class="page" id="publications">
     <div class="page-head">
-      <span class="eyebrow">Publications</span>
       <h1 class="title">Publications</h1>
       <p class="lede">Selected publications and presentations. An asterisk (*) marks equal contribution.</p>
     </div>
-     
-    <div class="cards">
-      <div class="card pub"><span class="ptype">Under review, 2026</span>
+
+    <div class="publist">
+      <div class="card pub rev"><span class="ptype">Under review, 2026</span>
         <h3>Allometric Scaling Laws for Bipedal Robots</h3>
         <p class="authors"><strong>Naomi Oke</strong>, Aja M. Carter, Ben Gu, Steven Man, Cordelia Pride, Sarah Bergbreiter, Aaron M. Johnson</p>
         <p class="venue">In preparation. arXiv:2603.22560</p></div>
-       
-      <div class="card pub"><span class="ptype">Conference/Meeting Poster & Abstract, 2026</span>
+
+      <div class="card pub conf"><span class="ptype">Conference/Meeting Poster &amp; Abstract, 2026</span>
         <h3>Embodied Evolutionary Co-Design of Legged Robot Morphology and Gait</h3>
         <p class="authors"><strong>Naomi Oke</strong> and Aaron M. Johnson</p>
         <p class="venue">MESH RCN Meeting 2026</p></div>
-       
-      <div class="card pub"><span class="ptype">Conference/Meeting Poster & Abstract, 2026</span>
+
+      <div class="card pub conf"><span class="ptype">Conference/Meeting Poster &amp; Abstract, 2026</span>
         <h3>A Penguin-Inspired Bipedal Robot for Low-Friction Surface Walking</h3>
         <p class="authors"><strong>Naomi Oke*</strong>, Ben Gu*, Cordelia Pride, Stacy Ashlyn, and Aaron M. Johnson</p>
-        <p class="venue"> Multi-modal Robotics for Sustainable Environmental Sensing Workshop, IEEE ICRA 2026</p></div>
-       
-      <div class="card pub"><span class="ptype">Conference poster, 2026</span>
+        <p class="venue">Multi-modal Robotics for Sustainable Environmental Sensing Workshop, IEEE ICRA 2026</p></div>
+
+      <div class="card pub conf"><span class="ptype">Conference poster, 2026</span>
         <h3>Allometric Scaling Laws in Bipedal Robot Design</h3>
         <p class="authors"><strong>Naomi Oke</strong>, Steven Man, Sarah Bergbreiter, and Aaron M. Johnson</p>
         <p class="venue">Gordon Research Seminar and Conference on Robotics, Ventura, CA, 2026</p></div>
-       
-      <div class="card pub"><span class="ptype">Conference Paper, 2025</span>
+
+      <div class="card pub pubd"><span class="ptype">Conference Paper, 2025</span>
         <h3>Zippy: The Smallest Power-Autonomous Bipedal Robot</h3>
         <p class="authors">Steven Man*, Soma Narita*, Josef Macera*, <strong>Naomi Oke</strong>, Aaron M. Johnson, Sarah Bergbreiter</p>
         <p class="venue">IEEE International Conference on Robotics and Automation (ICRA), 2025</p></div>
@@ -379,7 +395,6 @@ h2.sec-title.r::before{background:var(--red)} h2.sec-title.y::before{background:
   <!-- ===== COURSEWORK ===== -->
   <section class="page" id="coursework">
     <div class="page-head">
-      <span class="eyebrow">Coursework</span>
       <h1 class="title">Coursework</h1>
       <p class="lede">Graduate coursework at Carnegie Mellon and undergraduate coursework at Princeton.</p>
     </div>
@@ -434,13 +449,12 @@ h2.sec-title.r::before{background:var(--red)} h2.sec-title.y::before{background:
   <!-- ===== SERVICE ===== -->
   <section class="page" id="service">
     <div class="page-head">
-      <span class="eyebrow">Service and mentoring</span>
       <h1 class="title">Community and outreach</h1>
       <p class="lede">Workshops I organize, student groups I have served, and students I mentor.</p>
     </div>
 
-    <h2 class="sec-title">Leadership and service</h2>
-    <div class="cards two">
+    <h2 class="sec-title nodot">Leadership and service</h2>
+    <div class="svc-cards">
       <div class="card"><span class="when">Workshop Organizer, IEEE ICRA</span><h3>Unconventional Robots Workshop</h3>
         <p>Co-organized the <a href="https://sites.google.com/andrew.cmu.edu/2nd-unconventional-robots/home" target="_blank" rel="noopener">2nd</a>
           (ICRA 2025, Atlanta) and <a href="https://sites.google.com/andrew.cmu.edu/icra26-3rd-unconv-robots/home" target="_blank" rel="noopener">3rd</a>
@@ -457,7 +471,7 @@ h2.sec-title.r::before{background:var(--red)} h2.sec-title.y::before{background:
         <p>Connected Black students with career opportunities and alumni mentors (2020 to 2021).</p></div>
     </div>
 
-    <h2 class="sec-title r">Students I have mentored</h2>
+    <h2 class="sec-title nodot">Students I have mentored</h2>
     <div class="mentees">
       <div class="mentee"><h3>Bennett Matthews</h3><span>B.S. MechE, CMU, 2026 to present</span></div>
       <div class="mentee"><h3>Nicholas Chung</h3><span>B.S. MechE, CMU, 2026 to present</span></div>
@@ -473,17 +487,21 @@ h2.sec-title.r::before{background:var(--red)} h2.sec-title.y::before{background:
       <div class="mentee"><h3>Kendall Hart</h3><span>B.S. MechE, CMU, 2024 to 2025</span></div>
     </div>
 
-    <h2 class="sec-title y">Professional memberships</h2>
-    <div class="tags">
-      <span class="tag">IEEE</span><span class="tag">ASME</span><span class="tag">AIAA</span>
-      <span class="tag">SWE</span><span class="tag">NSBE</span><span class="tag">WoAA</span><span class="tag">Sigma Xi</span>
-    </div>
+    <h2 class="sec-title nodot">Professional memberships</h2>
+    <ul class="list">
+      <li>Institute of Electrical and Electronics Engineers (IEEE)</li>
+      <li>American Society of Mechanical Engineers (ASME)</li>
+      <li>American Institute of Aeronautics and Astronautics (AIAA)</li>
+      <li>Society of Women Engineers (SWE)</li>
+      <li>National Society of Black Engineers (NSBE)</li>
+      <li>Women of Aeronautics and Astronautics (WoAA)</li>
+      <li>Sigma Xi, The Scientific Research Honor Society</li>
+    </ul>
   </section>
 
   <!-- ===== CONTACT ===== -->
   <section class="page" id="contact">
     <div class="page-head">
-      <span class="eyebrow">Contact</span>
       <h1 class="title">Contact</h1>
       <p class="lede">I'm happy to talk about robotics research or collaboration. Email is the best way to reach me.</p>
     </div>
@@ -500,14 +518,13 @@ h2.sec-title.r::before{background:var(--red)} h2.sec-title.y::before{background:
 
 <footer class="site-footer">
   <div class="inner">
-    <span class="foot-brand">Naomi Oke</span>
     <span class="foot-links">
       <a href="mailto:noke@andrew.cmu.edu">Email</a>
       <a href="https://www.linkedin.com/in/naomi-oke-url/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://scholar.google.com/citations?user=989CEk8AAAAJ&hl=en&oi=ao" target="_blank" rel="noopener">Scholar</a>
       <a href="https://twitter.com/oke_naomi" target="_blank" rel="noopener">Twitter</a>
     </span>
-    <span class="copyright">© 2025 Naomi Oke</span>
+    <span class="copyright">© 2026 Naomi Oke</span>
   </div>
 </footer>
 

@@ -114,6 +114,9 @@ h2.sec-title.nodot::before{display:none}
 .conf{--c:var(--blue)}
 .pubd{--c:var(--red)}
 
+/* rolecards with no accent bar (e.g., TAing and Outreach) */
+.rolecards.nobar .card{border-left:1px solid var(--line)}
+
 /* publications */
 .pub .ptype{font-family:var(--display);font-weight:500;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--c);display:block;margin-bottom:.4rem}
 .pub h3{margin-bottom:.3rem}
@@ -218,11 +221,8 @@ ul.list li{font-size:.95rem}
         <div class="role">Roboticist and mechanical engineer.</div>
         <p>I'm a Ph.D. candidate in Mechanical Engineering at Carnegie Mellon University (CMU), working in the
           <a href="https://www.cmu.edu/me/robomechanicslab/" target="_blank" rel="noopener">Robomechanics Lab</a>.
-          I'm in my third year. My work includes legged robot design optimization, co-design, bio-inspired robotics,
-           robot mobility, legged robotics for space environments, and legged robot dynamics across length scales.
-           I earned my M.S. during my time at CMU. I earned my B.S.E. from Princeton University in Mechanical &amp;
-           Aerospace Engineering with a certificate in Robotics &amp; Intelligent Systems. I enjoy creative writing,
-           hand-drawn 2D animation, learning new languages, hiking, and photography.</p>
+          My work includes legged robot design optimization, co-design, bio-inspired robotics, robot mobility, 
+           legged robotics for space environments, and legged robot dynamics across length scales.</p>
         <div class="hero-cta">
           <a class="btn primary" href="#about">About me</a>
           <a class="btn" href="#publications">Publications</a>
@@ -244,13 +244,13 @@ ul.list li{font-size:.95rem}
     </div>
     <div class="about">
       <div>
-        <p>I'm a third-year Ph.D. candidate in Mechanical Engineering at Carnegie Mellon University, working in the
-          <a href="https://www.cmu.edu/me/robomechanicslab/" target="_blank" rel="noopener">Robomechanics Lab</a>
-          on design optimization, legged locomotion, and bipedal dynamics across length scales. My work includes
+        <p>I'm a third-year Ph.D. candidate in Mechanical Engineering at Carnegie Mellon University (CMU), working in the
+          <a href="https://www.cmu.edu/me/robomechanicslab/" target="_blank" rel="noopener">Robomechanics Lab</a>. My 
+           work includes
           bipedal walking, quadrupedal locomotion over compliant terrain, mobility in space environments, and allometric
-           scaling laws for robotic locomotion.</p>
+           scaling laws for robotic locomotion. During my time at CMU, I have also earned my M.S. </p>
         <p>I earned my B.S.E. from Princeton University in Mechanical and Aerospace Engineering, with a certificate
-          in Robotics and Intelligent Systems. Since then I have designed flight hardware at SpaceX, organized
+          in Robotics and Intelligent Systems. Since then, I have designed flight hardware at SpaceX, organized
           qualification testing for NASA's Mars Sample Return mission at JPL, and served as a temporary mechanical
           design lead for a lunar rover.</p>
         <p>Away from the lab, I enjoy creative writing, hand-drawn 2D animation, learning languages, hiking, and
@@ -296,7 +296,7 @@ ul.list li{font-size:.95rem}
       <h1 class="title">Experience</h1>
     </div>
 
-    <h2 class="sec-title">Selected industry and research roles</h2>
+    <h2 class="sec-title r">Selected industry and research roles</h2>
     <div class="rolecards">
       <div class="card role-research"><span class="when">Jan 2024 to present</span><h3>CMU Robomechanics Lab</h3>
         <div class="role-line">Ph.D. Researcher, Bipedal Locomotion and Scaling</div>
@@ -345,7 +345,7 @@ ul.list li{font-size:.95rem}
     </div>
 
     <h2 class="sec-title">TAing and Outreach</h2>
-    <div class="rolecards">
+    <div class="rolecards nobar">
       <div class="card role-teach"><span class="when">Fall 2026</span><h3>Teaching Assistant</h3>
         <div class="role-line">AI and Machine Learning for Engineers, CMU Mechanical Engineering</div></div>
       <div class="card role-teach"><span class="when">Spring 2023</span><h3>Tutor</h3>
@@ -403,7 +403,6 @@ ul.list li{font-size:.95rem}
         <li>Robot Design and Experimentation <span class="code">24-775, CMU</span></li>
         <li>Robot Dynamics and Analysis <span class="code">24-760, CMU</span></li>
         <li>Modern Control Theory <span class="code">24-677, CMU</span></li>
-        <li>Space Robotics <span class="code">16-865, CMU</span></li>
         <li>Automatic Control Systems <span class="code">MAE 433, Princeton</span></li>
       </ul></div>
       <div class="card"><h3>AI and Machine Learning</h3><ul>
@@ -424,6 +423,7 @@ ul.list li{font-size:.95rem}
         <li>Fluid Dynamics <span class="code">MAE 335, Princeton</span></li>
         <li>Space Flight: Orbital Mechanics <span class="code">MAE 341, Princeton</span></li>
         <li>Space System Design <span class="code">MAE 342, Princeton</span></li>
+        <li>Space Robotics <span class="code">16-865, CMU</span></li>
         <li>Rocket and Air-Breathing Propulsion <span class="code">MAE 426, Princeton</span></li>
         <li>Bioinspired Design <span class="code">MAE 416, Princeton</span></li>
       </ul></div>
@@ -435,7 +435,10 @@ ul.list li{font-size:.95rem}
         <li>Computer Science (Interdisciplinary) <span class="code">COS 126, Princeton</span></li>
         <li>Astronomy: The Universe <span class="code">AST 203, Princeton</span></li>
       </ul></div>
-      <div class="card"><h3>Humanities and Arts</h3><ul>
+      <div class="card"><h3>Other coursework</h3><ul>
+        <li><a href="https://www.meche.engineering.cmu.edu/education/courses/24-692.html" target="_blank" rel="noopener">Engineering a Startup</a> <span class="code">24-692, CMU</span></li>
+        <li><a href="https://www.meche.engineering.cmu.edu/education/graduate-programs/graduate-courses.html" target="_blank" rel="noopener">Professional Development for PhD Students</a> <span class="code">24-991, CMU</span></li>
+        <li><a href="http://meche.engineering.cmu.edu/education/courses/24-691.html" target="_blank" rel="noopener">Project Management</a> <span class="code">24-691, CMU</span></li>
         <li>Digital Animation <span class="code">VIS 220, Princeton</span></li>
         <li>Film and Media: Animation <span class="code">ENG 259, Princeton</span></li>
         <li>Creative Writing: Fiction <span class="code">CWR 204, Princeton</span></li>

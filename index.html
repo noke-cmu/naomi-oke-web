@@ -140,6 +140,25 @@ h2.sec-title.nodot::before{display:none}
 .svc-cards{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
 .svc-cards .card{border-left:1px solid var(--line)}
 
+/* projects (image cards) */
+.projects{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;align-items:start}
+.pcard{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .16s,transform .16s}
+.pcard:hover{box-shadow:0 8px 24px rgba(30,30,60,.07);transform:translateY(-1px)}
+.pcard .pimg{aspect-ratio:16/10;background:var(--blue-soft);border-bottom:1px solid var(--line)}
+.pcard .pimg img{width:100%;height:100%;object-fit:cover;display:block}
+.pcard .pimg .ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--faint);font-size:.78rem;font-family:var(--display);letter-spacing:.04em;text-align:center;padding:.5rem}
+.pcard .pbody{padding:1.05rem 1.25rem}
+.pcard .ptag{font-family:var(--display);font-weight:500;font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;color:var(--faint);display:block;margin-bottom:.35rem}
+.pcard h3{font-family:var(--display);font-weight:600;font-size:1.04rem;line-height:1.3;margin-bottom:.4rem}
+.pcard p{font-size:.88rem;color:var(--muted)}
+.pcard .link{display:inline-block;margin-top:.7rem;font-family:var(--display);font-weight:600;font-size:.8rem}
+.pcard.wide{grid-column:1 / -1}
+@media(min-width:801px){
+  .pcard.wide{flex-direction:row;align-items:stretch}
+  .pcard.wide .pimg{flex:0 0 42%;aspect-ratio:auto;min-height:230px;border-bottom:none;border-right:1px solid var(--line)}
+  .pcard.wide .pbody{flex:1;align-self:center}
+}
+
 /* plain lists (research interests, memberships) */
 ul.list{list-style:disc;padding-left:1.15rem;margin-top:.5rem;color:var(--muted);display:grid;gap:.25rem;max-width:62ch}
 ul.list li{font-size:.95rem}
@@ -184,7 +203,7 @@ ul.list li{font-size:.95rem}
 @media(max-width:800px){
   .hero{grid-template-columns:1fr}.hero .frame{max-width:260px}
   .about{grid-template-columns:1fr}.about .frame{max-width:240px}
-  .cw,.svc-cards{grid-template-columns:1fr}
+  .cw,.svc-cards,.projects{grid-template-columns:1fr}
   .mentees{grid-template-columns:1fr 1fr}
 }
 @media(max-width:460px){
@@ -204,6 +223,7 @@ ul.list li{font-size:.95rem}
       <a class="nav-link" data-page="about" href="#about">About</a>
       <a class="nav-link" data-page="experience" href="#experience">Experience</a>
       <a class="nav-link" data-page="publications" href="#publications">Publications</a>
+      <a class="nav-link" data-page="projects" href="#projects">Projects</a>
       <a class="nav-link" data-page="coursework" href="#coursework">Coursework</a>
       <a class="nav-link" data-page="service" href="#service">Service</a>
       <a class="nav-link" data-page="contact" href="#contact">Contact</a>
@@ -380,6 +400,169 @@ ul.list li{font-size:.95rem}
     </div>
   </section>
 
+  <!-- ===== PROJECTS ===== -->
+  <section class="page" id="projects">
+    <div class="page-head">
+      <h1 class="title">Projects</h1>
+      <p class="lede">Selected engineering projects across robotics, controls, machine learning, and aerospace.</p>
+    </div>
+
+    <h2 class="sec-title">Robotics and controls</h2>
+    <div class="projects">
+      <div class="pcard wide">
+        <figure class="pimg"><img src="images/pengu.jpg" alt="Penguin-inspired bipedal robot" data-label="Penguin robot" onerror="imgFail(this)"></figure>
+        <div class="pbody">
+          <span class="ptag">Bipedal robotics · CMU Robomechanics Lab</span>
+          <h3>Penguin-Inspired Bipedal Robot for Low-Friction Surface Walking</h3>
+          <p>Led end-to-end design and build of a penguin-inspired bipedal robot with six rigid bodies and five
+            Dynamixel-actuated joints. The robot uses prismatic leg extension and ellipsoidal feet with non-concentric
+            curvature centers for passive lateral stability. Developed MuJoCo-based design optimization for body
+            dimensions, implemented open-loop sinusoidal control, and trained PPO for comparison. Reached 0.165 m/s on
+            low-friction surfaces, showing that morphological design improves locomotion robustness. Validated on flat
+            ground, rough terrain, slippery surfaces, and slopes with three undergraduate mentees.</p>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pbody">
+          <span class="ptag">Scaling · CMU Robomechanics Lab</span>
+          <h3>Allometric Scaling Laws for Bipedal Robots</h3>
+          <p>Analyzed hip-actuated bipedal walkers across scales to derive allometric scaling laws for robotic
+            locomotion. Created digital twins of three robotic systems in Drake and MuJoCo for walking and morphology
+            trade studies. Implemented sinusoidal and PID-based hip control across scales, optimizing leg length, foot
+            curvature, mass distribution, and actuation parameters. Analyzed COM motion, stability metrics, torque
+            requirements, and gait performance across scale sweeps. Led design of a 1-meter hip-actuated quasi-passive
+            dynamic walker, and contributed to the Zippy platform, the smallest self-contained bipedal robot (3.6 cm)
+            at 10 leg-lengths per second.</p>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <figure class="pimg"><img src="images/ekf-slam-map.png" alt="EKF-SLAM map" data-label="EKF-SLAM" onerror="imgFail(this)"></figure>
+        <div class="pbody">
+          <span class="ptag">Controls · CMU 24-677</span>
+          <h3>EKF-SLAM for Mobile Robots</h3>
+          <p>Implemented Extended Kalman Filter SLAM for simultaneous localization and mapping on a mobile robot in the
+            Webots simulator. Built a full state estimation pipeline with prediction and update steps and landmark
+            association, handling unknown correspondence between observations and map features.</p>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pbody">
+          <span class="ptag">Controls · CMU 24-677</span>
+          <h3>LQR Trajectory Tracking</h3>
+          <p>Designed and tuned Linear Quadratic Regulator controllers for optimal trajectory tracking on mobile robot
+            platforms. Derived linearized system dynamics around reference trajectories and computed optimal feedback
+            gains via the discrete algebraic Riccati equation for minimum-cost control in Webots.</p>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pbody">
+          <span class="ptag">Controls · CMU 24-677</span>
+          <h3>Model Predictive Control</h3>
+          <p>Implemented Model Predictive Control for constrained path planning with obstacle avoidance on a mobile
+            robot. Formulated receding-horizon quadratic programs accounting for input constraints, state bounds, and
+            dynamic feasibility, solving at each timestep to generate a control trajectory.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="sec-title r">Machine and deep learning</h2>
+    <div class="projects">
+      <div class="pcard">
+        <figure class="pimg"><img src="images/gan-digits.png" alt="GAN-generated digits" data-label="GAN digits" onerror="imgFail(this)"></figure>
+        <div class="pbody">
+          <span class="ptag">Generative models · CMU</span>
+          <h3>GAN for Handwritten Digit Generation</h3>
+          <p>Trained a Generative Adversarial Network from scratch in PyTorch to generate realistic MNIST-style digits.
+            Implemented generator and discriminator architectures with batch normalization and training-stabilization
+            techniques, producing realistic samples by iteration 70,000.</p>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <figure class="pimg"><img src="images/airfoil-vae.png" alt="VAE-generated airfoils" data-label="Airfoil VAE" onerror="imgFail(this)"></figure>
+        <div class="pbody">
+          <span class="ptag">Generative models · CMU</span>
+          <h3>VAE for Airfoil Shape Generation</h3>
+          <p>Built a Variational Autoencoder to learn a continuous latent representation of airfoil geometries from an
+            engineering dataset. Sampled from the learned Gaussian distribution to generate novel, physically plausible
+            airfoil profiles for design exploration.</p>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pbody">
+          <span class="ptag">CNNs · CMU</span>
+          <h3>CNN Image Classification</h3>
+          <p>Designed convolutional neural networks for image classification from scratch in PyTorch. Implemented batch
+            normalization, dropout regularization, data augmentation, and residual skip connections to improve
+            generalization.</p>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <figure class="pimg"><img src="images/topology-opt.png" alt="Topology optimization result" data-label="Topology optimization" onerror="imgFail(this)"></figure>
+        <div class="pbody">
+          <span class="ptag">Optimization · CMU 24-787</span>
+          <h3>Topology Optimization with ML</h3>
+          <p>Applied machine learning to structural topology optimization. Trained models to predict optimal material
+            distributions under various loading conditions, using stress-field visualizations to evaluate structural
+            performance across candidate geometries.</p>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pbody">
+          <span class="ptag">Classification · CMU 24-787</span>
+          <h3>SVM and Decision Tree Classification</h3>
+          <p>Implemented support vector machines with linear, polynomial, and RBF kernels alongside decision tree
+            classifiers. Compared one-vs-one and one-vs-rest multi-class strategies, analyzing margins, decision
+            boundaries, and generalization. Applied PCA for dimensionality reduction, feature scaling, log transforms
+            for skewed distributions, and K-means clustering for pattern discovery in high-dimensional data.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="sec-title y">Aerospace</h2>
+    <div class="projects">
+      <div class="pcard">
+        <div class="pbody">
+          <span class="ptag">Orbital mechanics · Princeton</span>
+          <h3>Lagrange Point Mission Design</h3>
+          <p>Designed a complete space mission trajectory and operations plan for a Lagrange point destination,
+            including orbital transfer calculations, delta-v budgets, and a mission timeline.</p>
+          <a class="link" href="https://drive.google.com/drive/folders/1dA0ptisk9mVwTDB-jmB8BBUfspHS9p7f?usp=sharing" target="_blank" rel="noopener">View</a>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <figure class="pimg"><img src="images/detonation-engine.png" alt="Detonation engine" data-label="Detonation engine" onerror="imgFail(this)"></figure>
+        <div class="pbody">
+          <span class="ptag">Propulsion · Princeton</span>
+          <h3>Detonation Engine System</h3>
+          <p>Group project exploring the design and feasibility of a reusable rotating detonation engine for
+            next-generation aerospace propulsion, analyzing thermodynamic cycles and structural requirements.</p>
+          <a class="link" href="https://drive.google.com/drive/folders/1KyCvlTa0N6FJYXOHzGduaG54Tb87g6rO?usp=sharing" target="_blank" rel="noopener">View</a>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <figure class="pimg"><img src="images/mars-mission.jpg" alt="Mars habitat and mission design" data-label="Mars mission" onerror="imgFail(this)"></figure>
+        <div class="pbody">
+          <span class="ptag">NASA SEES · 2018</span>
+          <h3>Mars Habitat and Mission Design</h3>
+          <p>Designed a crewed Mars trip for 7 to 14 astronauts alongside NASA scientists and UT Austin faculty. Led
+            habitat design, 3D modeling, cost estimates, water recycling, and the repair and emergency module.
+            Presented findings at NASA Johnson Space Center.</p>
+          <a class="link" href="https://drive.google.com/drive/folders/1pjDDkE_KGKhvM5O7WoHVDqvLO5MxVQoN?usp=drive_link" target="_blank" rel="noopener">View</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== COURSEWORK ===== -->
   <section class="page" id="coursework">
     <div class="page-head">
@@ -535,7 +718,7 @@ ul.list li{font-size:.95rem}
 </footer>
 
 <script>
-  var pages=['home','about','experience','publications','coursework','service','contact'];
+  var pages=['home','about','experience','publications','projects','coursework','service','contact'];
   function show(id){
     if(pages.indexOf(id)===-1)id='home';
     document.querySelectorAll('.page').forEach(function(p){p.classList.toggle('active',p.id===id);});

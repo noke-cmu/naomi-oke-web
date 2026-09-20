@@ -865,7 +865,7 @@ ul.list li{font-size:.95rem}
 </footer>
 
 <script>
-  var pages=['home','about','experience','publications','projects','coursework','service','contact'];
+  var pages=['home','about','experience','publications','service','projects','coursework','contact'];
   function show(id){
     if(pages.indexOf(id)===-1)id='home';
     document.querySelectorAll('.page').forEach(function(p){p.classList.toggle('active',p.id===id);});

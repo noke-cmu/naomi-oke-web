@@ -208,7 +208,15 @@ ol.pubs em{font-style:italic}
 .gw{margin:-3.2rem 0 2.6rem}
 .gw-stage{position:relative;width:100vw;margin-left:calc(50% - 50vw);border-bottom:1px solid var(--line);overflow:hidden;background:var(--blue-soft)}
 .gw-stage canvas{display:block;width:100%;height:clamp(200px,24vw,300px)}
-.gw-controls{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.8rem 1.6rem;margin-top:.7rem}
+/* control box sits on the ground, centered under the robot (contact) or the Moon robot (home) */
+.gw-controls{position:absolute;top:8px;right:10px;display:flex;flex-wrap:nowrap;align-items:center;gap:.35rem;background:#fff;border:1px solid var(--line);padding:.1rem .4rem;box-shadow:0 1px 3px rgba(30,30,40,.08);white-space:nowrap}
+.gw-controls input[type=range]{-webkit-appearance:none;appearance:none;width:clamp(56px,7vw,100px);height:12px;margin:0;background:transparent;cursor:pointer}
+.gw-controls input[type=range]::-webkit-slider-runnable-track{height:3px;background:#d9d9e0}
+.gw-controls input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:10px;height:10px;border-radius:50%;background:var(--accent);border:0;margin-top:-3.5px}
+.gw-controls input[type=range]::-moz-range-track{height:3px;background:#d9d9e0}
+.gw-controls input[type=range]::-moz-range-thumb{width:10px;height:10px;border-radius:50%;background:var(--accent);border:0}
+.gw-controls .gw-lab,.gw-controls .gw-size{font-size:.62rem;gap:.35rem;line-height:1.5}
+@media(max-width:560px){.gw-controls{gap:.3rem;padding:.08rem .35rem}.gw-controls .gw-lab,.gw-controls .gw-size{font-size:.58rem}}
 .gw-planets{display:inline-flex;border:1px solid var(--line);border-radius:var(--r-sm);padding:2px;gap:2px}
 .gw-planets button{font-family:var(--display);font-weight:500;font-size:.84rem;color:var(--muted);background:none;border:0;border-radius:0;padding:.3rem .75rem;cursor:pointer;display:inline-flex;align-items:center;gap:.4rem;transition:background .16s,color .16s}
 .gw-planets button i{width:8px;height:8px;border-radius:50%;background:var(--dot);display:block}
@@ -217,16 +225,15 @@ ol.pubs em{font-style:italic}
 .gw-legwrap{display:flex;align-items:center;gap:.55rem;flex-wrap:wrap}
 .gw-lab{font-family:var(--display);font-size:.78rem;color:var(--faint)}
 .gw-size{display:flex;align-items:center;gap:.6rem;font-family:var(--display);font-size:.78rem;color:var(--faint)}
-.gw-size input{width:clamp(120px,18vw,190px);accent-color:var(--accent)}
 .gw-read{display:flex;flex-wrap:wrap;justify-content:center;gap:.2rem 1.1rem;font-size:.8rem;color:var(--faint);margin-top:.75rem;font-variant-numeric:tabular-nums}
 .gw-read b{font-weight:500;color:var(--ink)}
 .gw [hidden]{display:none!important}
 .gw[data-mode="evo"] .gw-stage canvas,.gw[data-mode="scale"] .gw-stage canvas{height:clamp(150px,15vw,210px)}
-.gw[data-mode="evo"] .gw-stage.gw-tall canvas{height:360px}
+.gw[data-mode="evo"] .gw-stage.gw-tall canvas{height:390px}
 .gw-lab b{font-weight:500;color:var(--ink);display:inline-block;min-width:1.9em;font-variant-numeric:tabular-nums}
 .gw-genwrap{display:flex;align-items:center;gap:.6rem}
-.gw-genwrap input{width:clamp(120px,18vw,190px);accent-color:var(--accent)}
-.gw-play{font-family:var(--display);font-weight:500;font-size:.84rem;color:var(--muted);background:none;border:1px solid var(--line);border-radius:0;padding:.32rem .8rem;cursor:pointer;min-width:4.6rem}
+.gw-play{display:flex;align-items:center;justify-content:center;width:16px;height:16px;padding:0;background:none;border:0;color:var(--muted);cursor:pointer}
+.gw-play svg{width:10px;height:10px;display:block}
 .gw-play:hover{color:var(--ink)}
 
 /* ---------- Responsive ---------- */
@@ -267,15 +274,8 @@ ol.pubs em{font-style:italic}
     <div class="gw" data-mode="evo">
       <div class="gw-stage">
         <canvas role="img" aria-label="A four-legged robot population evolving side by side in Earth, Mars and Moon gravity."></canvas>
-      </div>
-      <div class="gw-controls">
-        <div class="gw-legwrap"><span class="gw-lab" aria-hidden="true">Legs</span>
-          <div class="gw-planets gw-legs" role="group" aria-label="Number of legs">
-            <button type="button" data-legs="4" aria-pressed="true">4</button>
-            <button type="button" data-legs="6" aria-pressed="false">6</button>
-          </div></div>
-        <div class="gw-genwrap">
-          <button type="button" class="gw-play" data-id="gw-play">Pause</button>
+        <div class="gw-controls">
+          <button type="button" class="gw-play" data-id="gw-play" aria-label="Pause"></button>
           <input type="range" data-id="gw-genr" min="0" max="100" step="1" value="0" aria-label="Generation">
           <span class="gw-lab">Generation <b data-id="gw-gen">0</b></span>
         </div>
@@ -443,7 +443,7 @@ ol.pubs em{font-style:italic}
         <span class="pv"><em>IEEE International Conference on Intelligent Robots and Systems (IROS), 2026</em>.</span></li>
       <li><span class="pt">Zippy: The Smallest Power-Autonomous Bipedal Robot</span>
         <span class="pa">Steven Man*, Soma Narita*, Josef Macera*, <strong>Naomi Oke</strong>, Aaron M. Johnson, Sarah Bergbreiter</span>
-        <span class="pv"><em>IEEE International Conference on Robotics and Automation (ICRA), 2025</em>.</span></li>
+        <span class="pv"><em>IEEE International Conference on Robotics and Automation (ICRA), 2025</em>. <a href="https://ieeexplore.ieee.org/document/11128531" target="_blank" rel="noopener">IEEE Xplore</a></span></li>
     </ol>
 
     <h2 class="sec-title">Workshop abstracts, posters, and talks </h2>
@@ -462,7 +462,7 @@ ol.pubs em{font-style:italic}
         <span class="pv"><em>Space Exploration and Sustained Operations Beyond Earth Workshop, IEEE IROS 2026</em>.</span></li>
     </ol>
 
-    <h2 class="sec-title">Other presentations</h2>
+    <h2 class="sec-title">Posters and abstracts</h2>
     <ol class="pubs">
       <li><span class="pt">Embodied Evolutionary Co-Design of Legged Robot Morphology and Gait</span>
         <span class="pa"><strong>Naomi Oke</strong> and Aaron M. Johnson</span>
@@ -877,12 +877,12 @@ ol.pubs em{font-style:italic}
     <div class="gw" data-mode="scale">
       <div class="gw-stage">
         <canvas role="img" aria-label="A two-legged robot walking in Earth gravity next to a ruler."></canvas>
-      </div>
-      <div class="gw-controls">
-        <label class="gw-size"><span>Zippy, 3.6 cm</span>
-          <input type="range" data-id="gw-size" min="0" max="100" value="52" aria-label="Robot leg length, from Zippy (3.6 cm) to BigFoot (1 m)">
-          <span>BigFoot, 1 m</span></label>
-        <span class="gw-lab" aria-live="polite">Leg <b data-id="gw-l">20 cm</b></span>
+        <div class="gw-controls">
+          <label class="gw-size"><span>Zippy, 3.6 cm</span>
+            <input type="range" data-id="gw-size" min="0" max="100" value="52" aria-label="Robot leg length, from Zippy (3.6 cm) to BigFoot (1 m)">
+            <span>BigFoot, 1 m</span></label>
+          <span class="gw-lab" aria-live="polite">Leg <b data-id="gw-l">20 cm</b></span>
+        </div>
       </div>
     </div>
     <div class="page-head">
@@ -965,7 +965,7 @@ function makeGW(root){
   };
   var GAITS={2:'walk',4:'trot',6:'tripod'};
 
-  var LEGS=4, gen=0, playing=true, holdT=0;
+  var LEGS=4, gen=0, playing=true, holdT=0;   // evolution shows the 4-legged robot only
   var W=0, H=0, dpr=1, running=false, last=0, visible=true;
   var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(reduce) playing=false;
@@ -973,7 +973,7 @@ function makeGW(root){
   var E={}; LANES.forEach(function(k,i){E[k]={phi:i*1.3, cam:i*400};});
 
   var el=function(id){return root.querySelector('[data-id="'+id+'"]');};
-  var slider=el('gw-size'), genr=el('gw-genr'), playBtn=el('gw-play');
+  var slider=el('gw-size'), genr=el('gw-genr'), playBtn=el('gw-play'), ctrl=root.querySelector('.gw-controls');
   if(genr) genr.max=EVO.generations;
 
   /* ---------- helpers ---------- */
@@ -1002,7 +1002,7 @@ function makeGW(root){
       var nst=Math.round(70*R.w/1200)+12;
       for(var i=0;i<nst;i++){var x=R.x+mod(hash(i,1)*R.w*1.5-cam*0.02,R.w*1.5), y=R.y+hash(i,2)*(gy-R.y)*0.8, z=hash(i,3)<.2?1.6:1;
         ctx.fillRect(x,y,z,z);}
-      var ex=R.x+R.w*0.84, ey=R.y+R.h*0.2, er=Math.max(6,R.h*0.05);
+      var ex=R.x+R.w*0.3, ey=R.y+R.h*0.24, er=Math.max(6,R.h*0.05);
       ctx.fillStyle='#7f9bbd'; ctx.beginPath(); ctx.arc(ex,ey,er,0,7); ctx.fill();
       ctx.fillStyle='rgba(47,53,66,.85)'; ctx.beginPath(); ctx.arc(ex+er*0.45,ey-er*0.1,er,0,7); ctx.fill();
     } else if(k==='mars'){
@@ -1079,7 +1079,7 @@ function makeGW(root){
 
   /* ---------- scaling mode ---------- */
   function ruler(){
-    var pxm=legPx()/legM(), gy=H*0.8, top=Math.max(H*0.16,32), x=Math.max(16,W*0.012);
+    var pxm=legPx()/legM(), gy=H*0.8, top=Math.max(H*0.14,24), x=Math.max(16,W*0.012);
     var steps=[0.005,0.01,0.02,0.05,0.1,0.2,0.5,1,2], step=steps[steps.length-1];
     for(var i=0;i<steps.length;i++){ if(steps[i]*pxm>=30){step=steps[i];break;} }
     var lead=Math.round(step/Math.pow(10,Math.floor(Math.log10(step)+1e-9)));
@@ -1147,7 +1147,9 @@ function makeGW(root){
   }
   var GZ=[[-1.4,0.6,1.1],[1.2,-0.8,0.4],[0.5,1.3,-1.2],[-0.7,-1.3,-0.3],[1.5,0.2,1.4]];   // ghost offsets (leg, body, height)
   function drawEvo(){
-    var Rs=lanes(), pxm=evoScale(Rs[0]), n=LEGS/2;
+    var Rs=lanes(), pxm=evoScale(Rs[0]), n=LEGS/2, box=null;
+    if(ctrl){ var cr=cv.getBoundingClientRect(), br=ctrl.getBoundingClientRect();
+      box={x:br.left-cr.left, y:br.top-cr.top, w:br.width, h:br.height}; }
     LANES.forEach(function(k,i){
       var R=Rs[i], st=E[k], m=traits(k,gen), gy=R.y+R.h*0.8, cx=R.x+R.w*0.5;
       scene(k,R,st.cam);
@@ -1163,7 +1165,9 @@ function makeGW(root){
       var fs=Math.max(11,Math.min(13,R.w/34));
       ctx.fillStyle=P[k].label; ctx.textBaseline='top';
       ctx.font='600 '+fs+'px "IBM Plex Sans", system-ui, sans-serif';
-      ctx.fillText(P[k].name,R.x+12,R.y+9);
+      var lx=R.x+12, ly=R.y+9, lw=ctx.measureText(P[k].name).width;
+      if(box && lx+lw>box.x-6 && lx<box.x+box.w && ly<box.y+box.h) ly=box.y+box.h+6;   // keep the label clear of the controls
+      ctx.fillText(P[k].name,lx,ly);
       ctx.restore();
       if(i>0){ ctx.fillStyle='rgba(255,255,255,.7)'; if(R.x>0) ctx.fillRect(R.x,R.y,1.5,R.h); else ctx.fillRect(R.x,R.y,R.w,1.5); }
     });
@@ -1191,7 +1195,13 @@ function makeGW(root){
     } else {
       el('gw-gen').textContent=Math.floor(gen);
       if(document.activeElement!==genr) genr.value=Math.floor(gen);
-      playBtn.textContent=playing?'Pause':'Play';
+      if(playBtn && playBtn.dataset.state!==String(playing)){
+        playBtn.dataset.state=String(playing);
+        playBtn.setAttribute('aria-label',playing?'Pause':'Play');
+        playBtn.innerHTML=playing
+          ? '<svg viewBox="0 0 10 10" fill="currentColor"><rect x="1.5" y="1" width="2.4" height="8"/><rect x="6.1" y="1" width="2.4" height="8"/></svg>'
+          : '<svg viewBox="0 0 10 10" fill="currentColor"><path d="M2 1l7 4-7 4z"/></svg>';
+      }
     }
   }
 

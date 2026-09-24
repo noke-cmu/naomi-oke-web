@@ -200,10 +200,10 @@ ul.list li{font-size:.95rem}
 .copyright{font-size:.76rem;color:var(--faint)}
 
 /* ---------- Gravity walker header ---------- */
-.gw{margin:0 0 2.6rem}
-.gw-stage{position:relative;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--blue-soft)}
-.gw-stage canvas{display:block;width:100%;height:clamp(190px,27vw,250px);cursor:pointer;touch-action:manipulation}
-.gw-hint{position:absolute;left:.85rem;top:.6rem;font-family:var(--display);font-size:.76rem;color:var(--gw-hint,var(--muted));pointer-events:none;transition:color .4s}
+.gw{margin:-3.2rem 0 2.6rem}
+.gw-stage{position:relative;width:100vw;margin-left:calc(50% - 50vw);border-bottom:1px solid var(--line);overflow:hidden;background:var(--blue-soft)}
+.gw-stage canvas{display:block;width:100%;height:clamp(200px,24vw,300px);cursor:pointer;touch-action:manipulation}
+.gw-hint{position:absolute;left:max(1.6rem,calc(50vw - var(--wrap)/2 + 1.6rem));top:.7rem;font-family:var(--display);font-size:.76rem;color:var(--gw-hint,var(--muted));pointer-events:none;transition:color .4s}
 .gw-controls{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem 1.6rem;margin-top:.8rem}
 .gw-planets{display:inline-flex;border:1px solid var(--line);border-radius:var(--r-sm);padding:2px;gap:2px}
 .gw-planets button{font-family:var(--display);font-weight:500;font-size:.84rem;color:var(--muted);background:none;border:0;border-radius:6px;padding:.3rem .75rem;cursor:pointer;display:inline-flex;align-items:center;gap:.4rem;transition:background .16s,color .16s}

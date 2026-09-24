@@ -961,6 +961,10 @@ function makeGW(root){
     },
     spread0:0.22,   // population spread at generation 0 (fraction of each trait)
     spread1:0.03,   // spread once the population has converged
+    startHz:null,   // stride frequency all three populations share at generation 0 (Hz);
+                    // null = Earth's Froude-matched pace for the starting design.
+                    // Add hz:<value> to any planet in "end" to set its final frequency directly;
+                    // otherwise it is the Froude-matched pace for that planet's final design.
     seconds:14      // time for one full run of generations
   };
   var GAITS={2:'walk',4:'trot',6:'tripod'};
@@ -1133,6 +1137,13 @@ function makeGW(root){
     });
     return m;
   }
+  /* all populations start stepping at the same frequency and drift to their planet's final frequency */
+  function evoHz(k,gn){
+    var e=ease(Math.min(1,gn/EVO.generations));
+    var f0=EVO.startHz||strideHz(G0,EVO.start.leg);
+    var f1=EVO.end[k].hz||strideHz(P[k].g,EVO.end[k].leg);
+    return f0+(f1-f0)*e;
+  }
   function lanes(){
     var tall=H>W*0.45, out=[];
     for(var i=0;i<3;i++) out.push(tall?{x:0,y:i*H/3,w:W,h:H/3}:{x:i*W/3,y:0,w:W/3,h:H});
@@ -1181,7 +1192,7 @@ function makeGW(root){
     var pxm=evoScale(lanes()[0]);
     LANES.forEach(function(k){
       var st=E[k], m=traits(k,gen), Lp=m.leg*pxm, stA=Math.sin(st.phi)>=0, thOld=A*Math.cos(st.phi)*(stA?1:-1);
-      st.phi+=2*Math.PI*strideHz(P[k].g,m.leg)*dt;
+      st.phi+=2*Math.PI*evoHz(k,gen)*dt;
       var thNew=A*Math.cos(st.phi)*(stA?1:-1);
       st.cam-=Lp*(Math.sin(thNew)-Math.sin(thOld));
     });

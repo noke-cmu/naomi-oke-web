@@ -939,7 +939,7 @@ function makeGW(root){
   var cv=root.querySelector('canvas'); if(!cv) return;
   var mode=root.dataset.mode;
   var ctx=cv.getContext('2d'), stage=cv.parentNode;
-  var FR=0.25, A=0.38, G0=9.81, INK='#222226', LEGRATIO=0.65;
+  var FR=0.25, A=0.38, G0=9.81, INK='#222226', LEGRATIO=0.65, RIM='rgba(236,238,245,.75)';   // RIM: white outline on robot bodies
   var LEGC={stance:['#1f3d73','#8fa6cc'], swing:['#6f9fe0','#c2d6f2']};   // [near, far]: stance dark blue, swing light blue
   var P={
     earth:{name:'Earth', g:9.81, sky0:'#dde7f1', sky1:'#f2f5f9', far:'#c7d2c0', ground:'#a4b294', edge:'#8f9f80', dust:'#8a7a63', label:'#4a4a54', seed:11},
@@ -1074,7 +1074,7 @@ function makeGW(root){
     if(o.circle){ ctx.beginPath(); ctx.arc(o.cx,hy-o.circle*0.45,o.circle,0,7); }
     else rrect(bx,by,o.bl,o.bh,Math.min(o.bh*0.4,o.bl*0.2));
     if(ghost){ ctx.strokeStyle=ghost; ctx.lineWidth=1; ctx.stroke(); }
-    else { ctx.fillStyle=INK; ctx.fill(); ctx.strokeStyle=o.rim||INK; ctx.lineWidth=o.circle?1:Math.max(1.5,o.bh*0.07); ctx.stroke(); }
+    else { ctx.fillStyle=INK; ctx.fill(); ctx.strokeStyle=o.rim||INK; ctx.lineWidth=Math.max(1.5,(o.circle?o.circle*2:o.bh)*0.07); ctx.stroke(); }
     ctx.restore();
     for(var k=0;k<n;k++){var f2=foot(xs[k],k%2===0); leg(xs[k],hy,f2[0],f2[1],Lp,true,f2[2],ghost);
       if(!ghost) dot(xs[k],hy,Math.max(2.4,Lp*0.11),INK);}
@@ -1105,7 +1105,7 @@ function makeGW(root){
       ctx.beginPath(); ctx.arc(q.x-S.cam,q.y,q.r,0,7); ctx.fill();}
     ctx.globalAlpha=1;
     var B=bodyPx();
-    robot({cx:W*0.4, gy:H*0.8, Lp:legPx(), bl:B*0.5, bh:B*0.5, n:1, phi:S.phi, g:G0, circle:B*0.2});
+    robot({cx:W*0.4, gy:H*0.8, Lp:legPx(), bl:B*0.5, bh:B*0.5, n:1, phi:S.phi, g:G0, circle:B*0.2, rim:RIM});
   }
   function stepScale(dt){
     var L=legM(), Lp=legPx(), stA=Math.sin(S.phi)>=0, thOld=A*Math.cos(S.phi)*(stA?1:-1);
@@ -1171,7 +1171,7 @@ function makeGW(root){
                n:n, phi:st.phi, g:P[k].g, ghost:gcol});
       });
       robot({cx:cx, gy:gy, Lp:m.leg*pxm, bl:m.body*pxm, bh:m.height*pxm, n:n, phi:st.phi, g:P[k].g,
-             rim:k==='moon'?'rgba(236,238,245,.75)':INK});
+             rim:RIM});
       // label
       var fs=Math.max(11,Math.min(13,R.w/34));
       ctx.fillStyle=P[k].label; ctx.textBaseline='top';
